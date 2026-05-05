@@ -5,15 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://xnp1euf4tes6" path="res://Obsticals/deatharea.tscn" id="2_738xc"]
 
 [node name="Car" type="CharacterBody2D" unique_id=1351577253]
-position = Vector2(-61, -55)
+position = Vector2(0, -2)
 script = ExtResource("1_738xc")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=356022682]
-position = Vector2(64, 61)
+position = Vector2(-1, 1.9999981)
 rotation = -1.5755016
+scale = Vector2(0.78026503, 1)
 texture = ExtResource("1_1pdle")
 
 [node name="DeathArea" parent="." unique_id=1134643242 instance=ExtResource("2_738xc")]
-position = Vector2(128, 61.999985)
+position = Vector2(59.999992, 1.9999886)
 rotation = -1.5732993
 scale = Vector2(6.200001, 1)

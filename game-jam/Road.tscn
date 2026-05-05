@@ -1,15 +1,17 @@
-[gd_scene format=3 uid="uid://bpgctqjjg1go4"]
+[gd_scene format=3 uid="uid://d3bn3c15bg73p"]
 
-[ext_resource type="Script" uid="uid://c6q513rxe7hdy" path="res://road.gd" id="1_kfjey"]
+[sub_resource type="GDScript" id="GDScript_sp0v7"]
+script/source = "extends Node2D
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
-size = Vector2(287, 64)
+size = Vector2(705, 173.5)
 
 [node name="Node2D" type="Node2D" unique_id=1667444092]
-script = ExtResource("1_kfjey")
+script = SubResource("GDScript_sp0v7")
 
 [node name="Area detection" type="Area2D" parent="." unique_id=238021379]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area detection" unique_id=2100499348]
-position = Vector2(187.5, 55)
+position = Vector2(554, 444.75)
 shape = SubResource("RectangleShape2D_0e48y")
