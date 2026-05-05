@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c5tc5i84smmie"]
+
+[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="1_a81l0"]
+[ext_resource type="Script" uid="uid://dn172lgclvp83" path="res://player/drug_dealer_cat.gd" id="1_yxo0y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxo0y"]
+size = Vector2(128, 128)
+
+[node name="DrugDealerCat" type="CharacterBody2D" unique_id=1285274380]
+script = ExtResource("1_yxo0y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=695866708]
+texture = ExtResource("1_a81l0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1439527497]
+shape = SubResource("RectangleShape2D_yxo0y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=524721202]
+zoom = Vector2(0.765, 0.765)
+position_smoothing_enabled = true
