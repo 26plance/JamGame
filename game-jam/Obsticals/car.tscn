@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c7xc0vjpfwhkp"]
+
+[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="1_1pdle"]
+[ext_resource type="Script" uid="uid://cs3g0r2xve4u1" path="res://Obsticals/car.gd" id="1_738xc"]
+[ext_resource type="PackedScene" uid="uid://xnp1euf4tes6" path="res://Obsticals/deatharea.tscn" id="2_738xc"]
+
+[node name="Car" type="CharacterBody2D" unique_id=1351577253]
+position = Vector2(-61, -55)
+script = ExtResource("1_738xc")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=356022682]
+position = Vector2(64, 61)
+rotation = -1.5755016
+texture = ExtResource("1_1pdle")
+
+[node name="DeathArea" parent="." unique_id=1134643242 instance=ExtResource("2_738xc")]
+position = Vector2(128, 61.999985)
+rotation = -1.5732993
+scale = Vector2(6.200001, 1)
