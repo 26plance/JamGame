@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://xnp1euf4tes6"]
 
+[ext_resource type="Script" uid="uid://phqdmjra67t8" path="res://Obsticals/deatharea.gd" id="1_gps7h"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir3gf"]
 
 [node name="DeathArea" type="Area2D" unique_id=1134643242]
+script = ExtResource("1_gps7h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=659620503]
 shape = SubResource("RectangleShape2D_ir3gf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
