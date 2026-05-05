@@ -38,6 +38,6 @@ layout_mode = 2
 text = "QUIT"
 
 [node name="PawsMenu" type="Sprite2D" parent="." unique_id=1760778943]
-position = Vector2(576, 200)
+position = Vector2(576, 168)
 scale = Vector2(2.56, 2.56)
 texture = ExtResource("1_vbqm5")
