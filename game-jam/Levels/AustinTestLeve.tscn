@@ -1,8 +1,29 @@
 [gd_scene format=3 uid="uid://cv8rsu30rf5s7"]
 
 [ext_resource type="PackedScene" uid="uid://c5tc5i84smmie" path="res://player/playableCat.tscn" id="1_msb6d"]
+[ext_resource type="PackedScene" uid="uid://ck1qwrbkm6unc" path="res://Npc/HumanNpc.tscn" id="2_7qh87"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_msb6d"]
+vertices = PackedVector2Array(831.9375, 35.84375, 639.0781, 877.3828, -306.79688, 405.89844, 14.921875, -122.85156)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(844, 28, 10, -134, -321, 410, 646, 892)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qh87"]
+size = Vector2(123, 65)
 
 [node name="Node2D" type="Node2D" unique_id=1969125852]
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=321573627]
+navigation_polygon = SubResource("NavigationPolygon_msb6d")
+
 [node name="DrugDealerCat" parent="." unique_id=1285274380 instance=ExtResource("1_msb6d")]
 position = Vector2(253, 155)
+
+[node name="HumanNpc" parent="." unique_id=1986557669 instance=ExtResource("2_7qh87")]
+position = Vector2(584, 219)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1900713456]
+position = Vector2(435, 189)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1238750894]
+shape = SubResource("RectangleShape2D_7qh87")

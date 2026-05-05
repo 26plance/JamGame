@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ck1qwrbkm6unc"]
+
+[ext_resource type="Script" uid="uid://c6kc6bo7xb4nv" path="res://Npc/human_npc.gd" id="1_cv0od"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sr8p2"]
+
+[node name="HumanNpc" type="CharacterBody2D" unique_id=1986557669]
+script = ExtResource("1_cv0od")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16618671]
+shape = SubResource("RectangleShape2D_sr8p2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=274592157]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=60759357]
+avoidance_enabled = true
+debug_enabled = true
