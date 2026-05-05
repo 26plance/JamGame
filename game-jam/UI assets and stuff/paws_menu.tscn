@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://coqxkygax5b0i"]
+
+[ext_resource type="Texture2D" uid="uid://dmlbnwdyoch4p" path="res://UI assets and stuff/paws menu.png" id="1_vbqm5"]
+
+[node name="pause_menu" type="Control" unique_id=1379793595]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=2147174432]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 280.0
+offset_right = 704.0
+offset_bottom = 408.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=738356712]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 248.0
+offset_bottom = 121.0
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1564854478]
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=1965115654]
+layout_mode = 2
+text = "HOW TO PLAY"
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=802679566]
+layout_mode = 2
+text = "QUIT"
+
+[node name="PawsMenu" type="Sprite2D" parent="." unique_id=1760778943]
+position = Vector2(576, 200)
+scale = Vector2(2.56, 2.56)
+texture = ExtResource("1_vbqm5")
