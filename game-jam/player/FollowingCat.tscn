@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cc0uyhbwpp1gr"]
+
+[ext_resource type="Script" uid="uid://doense82yi6lh" path="res://player/following_cat.gd" id="1_ltbar"]
+[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="2_qnb8a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnb8a"]
+
+[node name="FollowingCats" type="CharacterBody2D" unique_id=130210116]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+up_direction = Vector2(0, 1)
+script = ExtResource("1_ltbar")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=268780090]
+texture = ExtResource("2_qnb8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1846696026]
+shape = SubResource("CircleShape2D_qnb8a")

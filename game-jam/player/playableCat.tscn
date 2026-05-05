@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxo0y"]
 size = Vector2(128, 128)
 
-[node name="playableCat" type="CharacterBody2D" unique_id=1285274380]
+[node name="playableCat" type="CharacterBody2D" unique_id=221570195]
+motion_mode = 1
+up_direction = Vector2(0, 1)
 script = ExtResource("1_yxo0y")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=695866708]
