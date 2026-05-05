@@ -1,4 +1,4 @@
-class_name PlayableDrugDealerCat
+class_name PlayableCat
 extends CharacterBody2D
 
 

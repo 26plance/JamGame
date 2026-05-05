@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cv8rsu30rf5s7"]
 
-[ext_resource type="PackedScene" uid="uid://c5tc5i84smmie" path="res://player/drugDealerCat.tscn" id="1_msb6d"]
+[ext_resource type="PackedScene" uid="uid://c5tc5i84smmie" path="res://player/playableCat.tscn" id="1_msb6d"]
 
 [node name="Node2D" type="Node2D" unique_id=1969125852]
 
