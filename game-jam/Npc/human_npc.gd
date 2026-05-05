@@ -8,9 +8,14 @@ var current_state: NpcState = NpcState.Wandering
 
 var point_just_moved_to:Vector2 
 
+var cat_seen_for_how_long = 0.0
+
+const TIME_NPC_NEEDS_TO_FOLLOW_CAT =2
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@export var cat_to_locate:PlayableCat
 
 
 func calculate_target_positon():
@@ -23,8 +28,8 @@ func calculate_target_positon():
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	check_if_cat_in_line_of_sight(delta)
 	if navigation_agent_2d.is_navigation_finished():
-		print("nav finished")
 		point_just_moved_to = navigation_agent_2d.target_position
 		calculate_target_positon()
 		return
@@ -35,8 +40,31 @@ func _physics_process(delta: float) -> void:
 	velocity = global_position.direction_to(way_to_go) * SPEED
 
 	navigation_agent_2d.velocity = velocity
-	move_and_slide()
 	
+	
+
+func check_if_cat_in_line_of_sight(delta):
+	if cat_to_locate:
+		var space_state = get_world_2d().direct_space_state
+		
+		var origin = global_transform.origin
+		var destination = cat_to_locate.global_position # 20 units forward
+		var query = PhysicsRayQueryParameters2D.create(origin, destination)
+		
+		var result = space_state.intersect_ray(query)
+		if result:
+			if result.collider is PlayableCat:
+				print("found cat to follow")
+				cat_seen_for_how_long += delta
+				#current_state = NpcState.Following
+				if cat_seen_for_how_long >= TIME_NPC_NEEDS_TO_FOLLOW_CAT:
+					
+			else:
+				cat_seen_for_how_long = max(cat_seen_for_how_long - delta, 0)
+	else:
+		print("ncp doens't have a tie to a cat will not follow if sees it")
+
+
 
 func get_if_a_point_matches_last_point(point:Vector2):
 	if point_just_moved_to:
@@ -47,6 +75,6 @@ func get_index_of_a_point(point:Vector2):
 	pass
 
 
-#func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	#velocity = safe_velocity
-	#move_and_slide()
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
+	move_and_slide()

@@ -48,6 +48,10 @@ DialogueManager="*uid://c3rodes2l3gxb"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[global_group]
+
+navigation_polygon_source_geometry_group=""
+
 [input]
 
 leftward={
