@@ -24,7 +24,10 @@ func calculate_target_positon():
 			var desired_target : Vector2 = target_wandering_points.pick_random()
 			if desired_target:
 				navigation_agent_2d.target_position = desired_target
-				
+		NpcState.Following:
+			var desired_target : Vector2 = cat_to_locate.global_position
+			if desired_target:
+				navigation_agent_2d.target_position = desired_target
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -56,9 +59,8 @@ func check_if_cat_in_line_of_sight(delta):
 			if result.collider is PlayableCat:
 				print("found cat to follow")
 				cat_seen_for_how_long += delta
-				#current_state = NpcState.Following
 				if cat_seen_for_how_long >= TIME_NPC_NEEDS_TO_FOLLOW_CAT:
-					
+					current_state = NpcState.Following
 			else:
 				cat_seen_for_how_long = max(cat_seen_for_how_long - delta, 0)
 	else:
