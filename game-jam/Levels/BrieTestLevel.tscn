@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://b1kmqrs6sslop"]
 
+[ext_resource type="PackedScene" uid="uid://c5tc5i84smmie" path="res://player/playableCat.tscn" id="2_rwelp"]
+
 [node name="BrieTestLevel" type="Node2D" unique_id=1636063507]
+
+[node name="playableCat" parent="." unique_id=221570195 instance=ExtResource("2_rwelp")]
