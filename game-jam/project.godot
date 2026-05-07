@@ -43,6 +43,7 @@ interact={
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
+PointHandler="*uid://cofpwx6c341h7"
 
 [editor_plugins]
 

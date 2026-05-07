@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cfdjx0lw3md3s" path="res://Npc/kill_Area.tscn" id="3_0ey5w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_msb6d"]
-vertices = PackedVector2Array(2956.461, -1183.8281, 2587.9922, 2449.1406, 1508, 565, 1508, 125, -590.1719, -1177.0625, 1462.5, 118, 543.5, 285.5, 543.5, 60.5, 699, 127, 699, 567, -1092.7734, 2306.2031, 1449.5, 568, 1462.5, 125, 879.5, 118, 879.5, 127, 260.5, 60.5, -1807.3203, 182.64844, 260.5, 285.5, 866.5, 567, 866.5, 568, 1449.5, 565)
+vertices = PackedVector2Array(2956.461, -1183.8281, 2587.9922, 2449.1406, 1501, 565, 1501, 125, -590.1719, -1177.0625, 1455.5, 118, 536.5, 285.5, 536.5, 60.5, 692, 127, 692, 567, -1092.7734, 2306.2031, 1442.5, 568, 1455.5, 125, 872.5, 118, 872.5, 127, 253.5, 60.5, -1807.3203, 182.64844, 253.5, 285.5, 859.5, 567, 859.5, 568, 1442.5, 565)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(2, 1, 10, 11), PackedInt32Array(3, 12, 5), PackedInt32Array(4, 5, 13), PackedInt32Array(4, 13, 14, 8, 7), PackedInt32Array(4, 7, 15), PackedInt32Array(10, 16, 4, 15, 17), PackedInt32Array(9, 18, 19, 10), PackedInt32Array(11, 20, 2), PackedInt32Array(19, 11, 10), PackedInt32Array(9, 10, 17, 6)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(3045, -1264, -626, -1257, -1898, 164, -1151, 2384, 2660, 2532)])
 source_geometry_mode = 1
