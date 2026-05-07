@@ -40,4 +40,40 @@ func _process(delta: float) -> void:
 
 
 func _on_roadpart_detection_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+	if area.Roadpart == "turn":
+		var desision = area.options.pick_random()
+		match desision:
+			"left":
+				if x_velocity != 0:
+					if x_velocity > 0:
+						y_velocity = -10
+						x_velocity = 0
+					else:
+						y_velocity = 10
+						x_velocity = 0
+				elif y_velocity != 0:
+					if y_velocity > 0:
+						y_velocity = 0
+						x_velocity = 10
+					else:
+						y_velocity = 0
+						x_velocity = -10
+				speedset = false
+			"right":
+				if x_velocity != 0:
+					if x_velocity > 0:
+						y_velocity = 10
+						x_velocity = 0
+					else:
+						y_velocity = -10
+						x_velocity = 0
+				elif y_velocity != 0:
+					if y_velocity > 0:
+						y_velocity = 0
+						x_velocity = -10
+					else:
+						y_velocity = 0
+						x_velocity = 10
+				speedset = false
+			"strait":
+				pass

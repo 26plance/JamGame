@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 			car.x_velocity = -10
 		elif  not vertical and direction > 0:
 			car.x_velocity = 10
+		car.global_position = self.global_position
 		get_parent().add_child(car)
 		timercurant = false
 		timetillspawn = randi_range(2,15)
