@@ -10,7 +10,7 @@ var point_just_moved_to:Vector2
 
 var cat_seen_for_how_long = 0.0
 
-const TIME_NPC_NEEDS_TO_FOLLOW_CAT =2
+const TIME_NPC_NEEDS_TO_FOLLOW_CAT = 10
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
