@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Cat
 var follow_target: Node2D
-@export var speed: float = 200.0
+@export var speed: float = 300.0
 @export var min_distance: float = 50.0
 func _ready():
 	motion_mode = MOTION_MODE_FLOATING

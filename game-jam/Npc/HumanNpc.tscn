@@ -2,20 +2,20 @@
 
 [ext_resource type="Script" uid="uid://c6kc6bo7xb4nv" path="res://Npc/human_npc.gd" id="1_cv0od"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sr8p2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_cv0od"]
+radius = 75.059975
 
-[node name="HumanNpc" type="CharacterBody2D" unique_id=1986557669]
+[node name="HumanNpc" type="CharacterBody2D" unique_id=1986557669 groups=["npcs"]]
 script = ExtResource("1_cv0od")
-target_wandering_points = Array[Vector2]([Vector2(0, 0), Vector2(100, 0), Vector2(100, 100), Vector2(200, 200)])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16618671]
-shape = SubResource("RectangleShape2D_sr8p2")
+shape = SubResource("CircleShape2D_cv0od")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=274592157]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=60759357]
 avoidance_enabled = true
-radius = 30.0
+radius = 80.0
 max_speed = 300.0
 debug_enabled = true
 

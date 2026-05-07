@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJam"
-run/main_scene="uid://cv8rsu30rf5s7"
+run/main_scene="uid://dl3roaxu0pigs"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 "<<<<<<<Updatedupstream[input]upward"={
@@ -43,6 +43,7 @@ interact={
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
+PointHandler="*uid://cofpwx6c341h7"
 
 [editor_plugins]
 
@@ -51,6 +52,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [global_group]
 
 navigation_polygon_source_geometry_group=""
+npcs=""
 
 [gui]
 
