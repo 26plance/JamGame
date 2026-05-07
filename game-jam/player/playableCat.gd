@@ -51,12 +51,12 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
-#func _input(event):
-	#if event.is_action_pressed("ui_accept"):
-		#spawn_new_cat()
-#func spawn_new_cat():
-	#var new_cat = cat_scene.instantiate()
-	#add_sibling(new_cat)
-	#new_cat.follow_target = self
-	#new_cat.global_position = global_position
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		spawn_new_cat()
+func spawn_new_cat():
+	var new_cat = cat_scene.instantiate()
+	add_sibling(new_cat)
+	new_cat.follow_target = self
+	new_cat.global_position = global_position
 	
