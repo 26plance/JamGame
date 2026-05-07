@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://coqxkygax5b0i"]
 
 [ext_resource type="Theme" uid="uid://bstwxf7jn1hkx" path="res://UI assets and stuff/base_theme.tres" id="1_81s8a"]
+[ext_resource type="Script" uid="uid://cvp5l1jvhd1x6" path="res://UI assets and stuff/paws_menu.gd" id="1_a7n6b"]
 [ext_resource type="Texture2D" uid="uid://dmlbnwdyoch4p" path="res://UI assets and stuff/paws menu.png" id="1_vbqm5"]
+[ext_resource type="PackedScene" uid="uid://br38uc5gum1pi" path="res://UI assets and stuff/scene_transitions.tscn" id="4_h6ki8"]
 
 [node name="pause_menu" type="Control" unique_id=1379793595]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a7n6b")
 
 [node name="Panel" type="Panel" parent="." unique_id=2147174432]
 layout_mode = 0
@@ -35,7 +38,7 @@ text = "CONTINUE"
 layout_mode = 2
 text = "HOW TO PLAY"
 
-[node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=802679566]
+[node name="quit" type="Button" parent="Panel/VBoxContainer" unique_id=802679566]
 layout_mode = 2
 text = "QUIT"
 
@@ -43,3 +46,8 @@ text = "QUIT"
 position = Vector2(576, 200)
 scale = Vector2(3.52, 3.52)
 texture = ExtResource("1_vbqm5")
+
+[node name="transition" parent="." unique_id=1792177419 instance=ExtResource("4_h6ki8")]
+layout_mode = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/quit" to="." method="_on_quit_pressed"]
