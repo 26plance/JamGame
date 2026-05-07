@@ -6,7 +6,7 @@ enum NpcState {Wandering, Scared, Following}
 @export var reputation: float = 0
 
 var current_state: NpcState = NpcState.Wandering
-@export var target_wandering_points: Array[Vector2] = []
+var target_wandering_points: Array[Vector2] = []
 
 var point_just_moved_to:Vector2 
 
@@ -30,6 +30,11 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
 @export var cat_to_locate:PlayableCat
+
+func _ready() -> void:
+	for child_node in get_children():
+		if child_node is Marker2D:
+			target_wandering_points.append(child_node.global_position)
 
 
 func calculate_target_positon():

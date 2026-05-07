@@ -33,6 +33,15 @@ position = Vector2(253, 155)
 position = Vector2(622, 244)
 cat_to_locate = NodePath("../DrugDealerCat")
 
+[node name="Marker2D2" type="Marker2D" parent="HumanNpc" unique_id=1138085283]
+position = Vector2(24, -353)
+
+[node name="Marker2D3" type="Marker2D" parent="HumanNpc" unique_id=973611223]
+position = Vector2(-446, -360)
+
+[node name="Marker2D4" type="Marker2D" parent="HumanNpc" unique_id=893807273]
+position = Vector2(-236, -554)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1900713456 groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(461, 203)
 collision_layer = 15
