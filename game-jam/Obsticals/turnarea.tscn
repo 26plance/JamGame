@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cclg0eu5loo0f"]
 
-[ext_resource type="Script" uid="uid://siplqqufx2fe" path="res://turnarea.gd" id="1_rhnqd"]
+[ext_resource type="Script" uid="uid://siplqqufx2fe" path="res://Obsticals/turnarea.gd" id="1_rhnqd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok1lb"]
 

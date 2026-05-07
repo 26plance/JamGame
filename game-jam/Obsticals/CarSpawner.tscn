@@ -4,4 +4,5 @@
 
 [node name="Node2D" type="Node2D" unique_id=1667444092]
 script = ExtResource("1_i1rlc")
-direction = 2
+vertical = true
+direction = -1
