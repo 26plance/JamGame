@@ -1,6 +1,6 @@
 extends Node
 
-
+signal score_changed
 var current_score:float = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -14,3 +14,5 @@ func _process(delta: float) -> void:
 
 func add_score(score_to_add:float):
 	current_score += score_to_add
+	score_changed.emit()
+	

@@ -2,13 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="1_1pdle"]
 [ext_resource type="Script" uid="uid://cs3g0r2xve4u1" path="res://Obsticals/car.gd" id="1_738xc"]
-[ext_resource type="PackedScene" uid="uid://xnp1euf4tes6" path="res://Obsticals/deatharea.tscn" id="2_738xc"]
+[ext_resource type="PackedScene" uid="uid://cfdjx0lw3md3s" path="res://Npc/kill_Area.tscn" id="3_738xc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5falx"]
 size = Vector2(24, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_738xc"]
 size = Vector2(117, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md7ul"]
+size = Vector2(15, 89)
 
 [node name="Car" type="CharacterBody2D" unique_id=1351577253]
 position = Vector2(0, -2)
@@ -20,11 +23,6 @@ rotation = -1.5755016
 scale = Vector2(0.78026503, 1)
 texture = ExtResource("1_1pdle")
 
-[node name="DeathArea" parent="." unique_id=1134643242 instance=ExtResource("2_738xc")]
-position = Vector2(59.999992, 1.9999886)
-rotation = -1.5732993
-scale = Vector2(6.200001, 1)
-
 [node name="roadpart detection" type="Area2D" parent="." unique_id=1415151540]
 collision_layer = 2
 collision_mask = 2
@@ -34,7 +32,20 @@ position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_5falx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980937966]
-position = Vector2(-6.5, 0)
+position = Vector2(-6, 1)
 shape = SubResource("RectangleShape2D_738xc")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1357516865]
+position = Vector2(61, 2)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Node2D" unique_id=901835354]
+avoidance_enabled = true
+
+[node name="KillArea" parent="." unique_id=1998936679 instance=ExtResource("3_738xc")]
+position = Vector2(150, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea" unique_id=2087148322]
+position = Vector2(-89.5, -4.5)
+shape = SubResource("RectangleShape2D_md7ul")
 
 [connection signal="area_entered" from="roadpart detection" to="." method="_on_roadpart_detection_area_entered"]

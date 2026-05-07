@@ -1,3 +1,4 @@
+class_name car
 extends CharacterBody2D
 
 var y_velocity = 0

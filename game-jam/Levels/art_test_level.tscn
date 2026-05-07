@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://5pk6i0aqvfrb"]
+
+[ext_resource type="PackedScene" uid="uid://c5tc5i84smmie" path="res://player/playableCat.tscn" id="1_632s5"]
+[ext_resource type="PackedScene" uid="uid://bky7qu0k0qvdr" path="res://player/super_rare_radioactive_kat.tscn" id="2_oe2uw"]
+
+[node name="art_test_level" type="Node2D" unique_id=2719429]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=820780287]
+offset_left = -100.0
+offset_top = -124.0
+offset_right = 1032.0
+offset_bottom = 630.0
+color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
+[node name="playableCat" parent="." unique_id=221570195 instance=ExtResource("1_632s5")]
+position = Vector2(40, 42)
+
+[node name="super_rare_radioactive_kat" parent="." unique_id=1204380946 instance=ExtResource("2_oe2uw")]
+position = Vector2(474, 32)
