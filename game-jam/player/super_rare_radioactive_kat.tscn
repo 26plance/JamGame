@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://bky7qu0k0qvdr"]
+
+[ext_resource type="Texture2D" uid="uid://ccg3hvbgapl5r" path="res://player/neon_green_kitty_kat.png" id="1_hx5yt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0fjc"]
+atlas = ExtResource("1_hx5yt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dynpd"]
+atlas = ExtResource("1_hx5yt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciobo"]
+atlas = ExtResource("1_hx5yt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fm4wm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0fjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dynpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0fjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciobo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_hx5yt"]
+offsets = PackedFloat32Array(0, 0.71686745, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v0fjc"]
+gradient = SubResource("Gradient_hx5yt")
+fill = 1
+fill_from = Vector2(0.526087, 0.5217391)
+
+[node name="super_rare_radioactive_kat" type="CharacterBody2D" unique_id=1204380946]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=204530456]
+sprite_frames = SubResource("SpriteFrames_fm4wm")
+autoplay = "default"
+frame = 11
+frame_progress = 0.083409324
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1804504976]
+z_index = -1
+position = Vector2(-5, 0)
+color = Color(0.9933676, 0.9933675, 1.4631748e-05, 1)
+energy = 10.16
+texture = SubResource("GradientTexture2D_v0fjc")

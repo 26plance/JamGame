@@ -24,9 +24,16 @@ offset_left = 80.0
 offset_top = 40.0
 offset_right = 253.33334
 offset_bottom = 312.0
+theme_override_constants/separation = 10
 
 [node name="pllay" type="Button" parent="Panel/VBoxContainer" unique_id=231797617]
 layout_mode = 2
 text = "Play"
 
+[node name="quit" type="Button" parent="Panel/VBoxContainer" unique_id=1493667719]
+layout_mode = 2
+text = "	Quit
+"
+
 [connection signal="pressed" from="Panel/VBoxContainer/pllay" to="." method="_on_pllay_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/quit" to="." method="_on_quit_pressed"]
