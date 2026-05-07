@@ -20,3 +20,7 @@ shape = SubResource("RectangleShape2D_yxo0y")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=524721202]
 zoom = Vector2(0.765, 0.765)
 position_smoothing_enabled = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1581843630]
+avoidance_enabled = true
+radius = 79.79

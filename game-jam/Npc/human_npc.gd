@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 enum NpcState {Wandering, Scared, Following}
+@export var reputation: float = 0
+
 var current_state: NpcState = NpcState.Wandering
 @export var target_wandering_points: Array[Vector2] = []
 
@@ -10,7 +12,13 @@ var point_just_moved_to:Vector2
 
 var cat_seen_for_how_long = 0.0
 
-const TIME_NPC_NEEDS_TO_FOLLOW_CAT = 10
+
+const TIME_NPC_NEEDS_TO_FOLLOW_CAT = 5
+const LOSE_TRACK_OF_TIME = 1
+const MAX_TIME_SEEN_STORED = 8
+
+const MAX_REP_FOR_SCARED = -5
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -28,18 +36,24 @@ func calculate_target_positon():
 			var desired_target : Vector2 = cat_to_locate.global_position
 			if desired_target:
 				navigation_agent_2d.target_position = desired_target
+		NpcState.Scared:
+			var vector_to_add = (cat_to_locate.global_position - global_transform.origin) * -1
+			var desired_target : Vector2 = global_position + vector_to_add
+			if desired_target:
+				navigation_agent_2d.target_position = desired_target
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	check_if_cat_in_line_of_sight(delta)
+	
 	if navigation_agent_2d.is_navigation_finished():
 		point_just_moved_to = navigation_agent_2d.target_position
 		calculate_target_positon()
 		return
 	var way_to_go = navigation_agent_2d.get_next_path_position() 
 	print(way_to_go)
-
-
+	
+	
 	velocity = global_position.direction_to(way_to_go) * SPEED
 
 	navigation_agent_2d.velocity = velocity
@@ -59,10 +73,18 @@ func check_if_cat_in_line_of_sight(delta):
 			if result.collider is PlayableCat:
 				print("found cat to follow")
 				cat_seen_for_how_long += delta
+				cat_seen_for_how_long = min(MAX_TIME_SEEN_STORED, cat_seen_for_how_long)
 				if cat_seen_for_how_long >= TIME_NPC_NEEDS_TO_FOLLOW_CAT:
-					current_state = NpcState.Following
+					if reputation > MAX_REP_FOR_SCARED:
+						current_state = NpcState.Following
+					else:
+						current_state = NpcState.Scared
 			else:
 				cat_seen_for_how_long = max(cat_seen_for_how_long - delta, 0)
+				match current_state:
+					NpcState.Following,NpcState.Scared:
+						if cat_seen_for_how_long < LOSE_TRACK_OF_TIME:
+							current_state = NpcState.Wandering
 	else:
 		print("ncp doens't have a tie to a cat will not follow if sees it")
 

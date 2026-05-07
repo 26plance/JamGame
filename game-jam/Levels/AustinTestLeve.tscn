@@ -4,14 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://ck1qwrbkm6unc" path="res://Npc/HumanNpc.tscn" id="2_7qh87"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_msb6d"]
-vertices = PackedVector2Array(726.5, 192.5, 808.7031, 47.726563, 625.64844, 846.5, 726.5, 67.5, 642, -8.671875, 543.5, 67.5, 503.59375, 0.3125, 109.74219, 561.7031, 543.5, 192.5, 127.42969, 137.0625, 245.35938, 33.351563, 395.75, 89.13281)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(1, 0, 3), PackedInt32Array(4, 1, 3, 5, 6), PackedInt32Array(0, 2, 7, 8), PackedInt32Array(8, 7, 9, 10, 11), PackedInt32Array(5, 8, 11, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(844, 28, 646, -39, 492, -29, 390, 55, 239, -1, 98, 123, 79, 579, 646, 892)])
+vertices = PackedVector2Array(153.28125, 973.02344, -558.3828, 609.15625, 426.8672, -473.10156, 369.5, 140.5, 552.5, 265.5, 552.5, 140.5, 807, 208, 807, 548, 826.75, 548, 837.25, 975.8672, 369.5, 265.5, 814.2422, 38.398438, 818.40625, 208)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 0, 7), PackedInt32Array(4, 7, 0, 10), PackedInt32Array(11, 12, 6, 5, 2), PackedInt32Array(2, 5, 3), PackedInt32Array(0, 3, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(844, 28, 429, -520, -607, 618, 146, 1003, 868, 1006)])
 source_geometry_mode = 1
 agent_radius = 30.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qh87"]
 size = Vector2(123, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ey5w"]
+size = Vector2(66, 280)
 
 [node name="Node2D" type="Node2D" unique_id=1969125852]
 
@@ -27,10 +30,17 @@ position = Vector2(584, 219)
 cat_to_locate = NodePath("../DrugDealerCat")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1900713456 groups=["navigation_polygon_source_geometry_group"]]
-position = Vector2(435, 189)
+position = Vector2(461, 203)
 collision_layer = 15
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1238750894]
-position = Vector2(200, -59)
 shape = SubResource("RectangleShape2D_7qh87")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1232689687 groups=["navigation_polygon_source_geometry_group"]]
+position = Vector2(870, 378)
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1087953085]
+shape = SubResource("RectangleShape2D_0ey5w")
