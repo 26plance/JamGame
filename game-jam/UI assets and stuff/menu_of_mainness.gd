@@ -15,3 +15,8 @@ func _process(delta: float) -> void:
 func _on_pllay_pressed() -> void:
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://Levels/AustinTestLeve.tscn")
+
+
+func _on_quit_pressed() -> void:
+	await get_tree().create_timer(0.5).timeout
+	get_tree().quit()
