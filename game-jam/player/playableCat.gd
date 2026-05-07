@@ -6,12 +6,12 @@ extends CharacterBody2D
 const SPEED = 300.0
 func _ready():
 	motion_mode = MOTION_MODE_FLOATING
-<<<<<<< Updated upstream
+#<<<<<<< Updated upstream
 	self.add_to_group("npcs")
 
-=======
+#=======
 	sprite_2d.play("sit_forward")
->>>>>>> Stashed changes
+#>>>>>>> Stashed changes
 
 func _physics_process(_delta: float) -> void:
 	# Add the gravity.

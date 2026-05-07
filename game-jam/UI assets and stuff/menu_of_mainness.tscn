@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dl3roaxu0pigs"]
+
+[ext_resource type="Script" uid="uid://codux20j1ve5v" path="res://UI assets and stuff/menu_of_mainness.gd" id="1_ja85b"]
+
+[node name="menu_of_mainness" type="Control" unique_id=1787752164]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ja85b")
+
+[node name="Panel" type="Panel" parent="." unique_id=1387620136]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 256.0
+offset_right = 744.0
+offset_bottom = 608.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=149521810]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 253.33334
+offset_bottom = 312.0
+
+[node name="pllay" type="Button" parent="Panel/VBoxContainer" unique_id=231797617]
+layout_mode = 2
+text = "Play"
+
+[connection signal="pressed" from="Panel/VBoxContainer/pllay" to="." method="_on_pllay_pressed"]
