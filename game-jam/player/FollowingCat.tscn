@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cc0uyhbwpp1gr"]
 
 [ext_resource type="Script" uid="uid://doense82yi6lh" path="res://player/following_cat.gd" id="1_ltbar"]
-[ext_resource type="SpriteFrames" path="res://player/purple_cat_animation_frames.tres" id="2_qnb8a"]
+[ext_resource type="SpriteFrames" uid="uid://xse4n60vdwq4" path="res://player/purple_cat_animation_frames.tres" id="2_qnb8a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnb8a"]
 
