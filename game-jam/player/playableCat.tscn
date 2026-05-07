@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn172lgclvp83" path="res://player/playableCat.gd" id="1_yxo0y"]
 [ext_resource type="Texture2D" uid="uid://ksf36ompk822" path="res://player/kitty kat game jam woah.png" id="2_vfup7"]
+[ext_resource type="PackedScene" uid="uid://bmglco8ib1oqx" path="res://UI assets and stuff/In Game Score/in game Ui.tscn" id="3_ysb7s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfup7"]
 atlas = ExtResource("2_vfup7")
@@ -472,3 +473,7 @@ position_smoothing_enabled = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1581843630]
 avoidance_enabled = true
 radius = 30.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1094272834]
+
+[node name="InGameUi" parent="CanvasLayer" unique_id=957952290 instance=ExtResource("3_ysb7s")]

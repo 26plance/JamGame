@@ -125,6 +125,7 @@ func get_index_of_a_point(point:Vector2):
 func die():
 	queue_free()
 	PointHandler.add_score(1)
+	remove_from_group("npcs")
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
