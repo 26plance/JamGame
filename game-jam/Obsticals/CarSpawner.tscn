@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bpgctqjjg1go4"]
+
+[ext_resource type="Script" uid="uid://c6q513rxe7hdy" path="res://Obsticals/Carspawner.gd" id="1_i1rlc"]
+
+[node name="Node2D" type="Node2D" unique_id=1667444092]
+script = ExtResource("1_i1rlc")
+direction = 2

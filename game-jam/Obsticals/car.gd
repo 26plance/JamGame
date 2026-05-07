@@ -3,13 +3,29 @@ extends CharacterBody2D
 var y_velocity = 0
 var x_velocity = 0
 var stop = false
+var speedset = false
+var cartype = "emergency"
+var Cartypes = ["standard","slow","fast","emergency"]
+var carstypedata = {
+	"standard":{"speed": 35},
+	"slow": {"speed": 15},
+	"fast":{"speed": 55},
+	"emergency": {"speed": 70}
+}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	cartype = Cartypes.pick_random()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if y_velocity == 0 and x_velocity == 0:
+		speedset = false
+	if  not speedset:
+		if y_velocity != 0 or x_velocity != 0:
+			speedset = true
+			y_velocity *= carstypedata[cartype]["speed"]
+			x_velocity *= carstypedata[cartype]["speed"]
 	if not stop:
 		velocity.x = x_velocity
 		velocity.y = y_velocity
@@ -21,3 +37,7 @@ func _process(delta: float) -> void:
 	var target_angle = atan2(velocity.y, velocity.x)
 	rotation = lerp_angle(rotation, target_angle, 0.2)
 	move_and_slide()
+
+
+func _on_roadpart_detection_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

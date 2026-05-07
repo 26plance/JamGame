@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cclg0eu5loo0f"]
+
+[ext_resource type="Script" uid="uid://siplqqufx2fe" path="res://turnarea.gd" id="1_rhnqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok1lb"]
+
+[node name="Turnarea" type="Area2D" unique_id=707995603]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_rhnqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=574681561]
+shape = SubResource("RectangleShape2D_ok1lb")
