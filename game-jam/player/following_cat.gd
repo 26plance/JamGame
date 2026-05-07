@@ -19,3 +19,6 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
+func sync_animation(anim_name: String):
+	if $Sprite2D.has_animation(anim_name):
+		$Sprite2D.play(anim_name)
