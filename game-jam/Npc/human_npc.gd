@@ -12,15 +12,21 @@ var point_just_moved_to:Vector2
 
 var cat_seen_for_how_long = 0.0
 
+var TIME_UNTIL_STOP_CHASE_DUE_TO_disinterest = 10
 
-const TIME_NPC_NEEDS_TO_FOLLOW_CAT = 5
-const LOSE_TRACK_OF_TIME = 1
-const MAX_TIME_SEEN_STORED = 8
+var chase_time_disinterest = 0
 
-const MAX_REP_FOR_SCARED = -5
+var distance_for_npc_to_keep_interest = 250
 
 
-const SPEED = 300.0
+var TIME_NPC_NEEDS_TO_FOLLOW_CAT = 5
+var LOSE_TRACK_OF_TIME = 1
+var MAX_TIME_SEEN_STORED = 8
+
+var MAX_REP_FOR_SCARED = -5
+
+
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
 @export var cat_to_locate:PlayableCat
@@ -44,16 +50,26 @@ func calculate_target_positon():
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	if chase_time_disinterest > TIME_UNTIL_STOP_CHASE_DUE_TO_disinterest:
+		current_state = NpcState.Wandering
+		cat_seen_for_how_long = 0
+		chase_time_disinterest = 0
+	
 	check_if_cat_in_line_of_sight(delta)
 	
+	match current_state:
+		NpcState.Following:
+			if (cat_to_locate.global_position - global_transform.origin).length() > distance_for_npc_to_keep_interest:
+				chase_time_disinterest += delta
+				print(chase_time_disinterest)
 	if navigation_agent_2d.is_navigation_finished():
 		point_just_moved_to = navigation_agent_2d.target_position
 		calculate_target_positon()
 		return
 	var way_to_go = navigation_agent_2d.get_next_path_position() 
-	print(way_to_go)
 	
 	
+			
 	velocity = global_position.direction_to(way_to_go) * SPEED
 
 	navigation_agent_2d.velocity = velocity
@@ -71,12 +87,14 @@ func check_if_cat_in_line_of_sight(delta):
 		var result = space_state.intersect_ray(query)
 		if result:
 			if result.collider is PlayableCat:
-				print("found cat to follow")
 				cat_seen_for_how_long += delta
 				cat_seen_for_how_long = min(MAX_TIME_SEEN_STORED, cat_seen_for_how_long)
 				if cat_seen_for_how_long >= TIME_NPC_NEEDS_TO_FOLLOW_CAT:
 					if reputation > MAX_REP_FOR_SCARED:
+						if current_state != NpcState.Following:
+							chase_time_disinterest = 0
 						current_state = NpcState.Following
+						
 					else:
 						current_state = NpcState.Scared
 			else:

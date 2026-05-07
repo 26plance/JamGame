@@ -51,6 +51,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [global_group]
 
 navigation_polygon_source_geometry_group=""
+npcs=""
 
 [gui]
 

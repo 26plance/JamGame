@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://ck1qwrbkm6unc" path="res://Npc/HumanNpc.tscn" id="2_7qh87"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_msb6d"]
-vertices = PackedVector2Array(153.28125, 973.02344, -558.3828, 609.15625, 426.8672, -473.10156, 369.5, 140.5, 552.5, 265.5, 552.5, 140.5, 807, 208, 807, 548, 826.75, 548, 837.25, 975.8672, 369.5, 265.5, 814.2422, 38.398438, 818.40625, 208)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 0, 7), PackedInt32Array(4, 7, 0, 10), PackedInt32Array(11, 12, 6, 5, 2), PackedInt32Array(2, 5, 3), PackedInt32Array(0, 3, 10)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(844, 28, 429, -520, -607, 618, 146, 1003, 868, 1006)])
+vertices = PackedVector2Array(2956.461, -1183.8281, 2587.9922, 2449.1406, 1508, 565, 1508, 125, -590.1719, -1177.0625, 1462.5, 118, 543.5, 285.5, 543.5, 60.5, 699, 127, 699, 567, -1092.7734, 2306.2031, 1449.5, 568, 1462.5, 125, 879.5, 118, 879.5, 127, 260.5, 60.5, -1807.3203, 182.64844, 260.5, 285.5, 866.5, 567, 866.5, 568, 1449.5, 565)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(2, 1, 10, 11), PackedInt32Array(3, 12, 5), PackedInt32Array(4, 5, 13), PackedInt32Array(4, 13, 14, 8, 7), PackedInt32Array(4, 7, 15), PackedInt32Array(10, 16, 4, 15, 17), PackedInt32Array(9, 18, 19, 10), PackedInt32Array(11, 20, 2), PackedInt32Array(19, 11, 10), PackedInt32Array(9, 10, 17, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(3045, -1264, -626, -1257, -1898, 164, -1151, 2384, 2660, 2532)])
 source_geometry_mode = 1
-agent_radius = 30.0
+agent_radius = 80.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qh87"]
 size = Vector2(123, 65)
@@ -16,9 +16,13 @@ size = Vector2(123, 65)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ey5w"]
 size = Vector2(66, 280)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gku2u"]
+size = Vector2(423, 70)
+
 [node name="Node2D" type="Node2D" unique_id=1969125852]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=321573627]
+position = Vector2(66, 30)
 navigation_polygon = SubResource("NavigationPolygon_msb6d")
 
 [node name="DrugDealerCat" parent="." unique_id=1285274380 groups=["navigation_polygon_source_geometry_group"] instance=ExtResource("1_msb6d")]
@@ -26,7 +30,7 @@ unique_name_in_owner = true
 position = Vector2(253, 155)
 
 [node name="HumanNpc" parent="." unique_id=1986557669 node_paths=PackedStringArray("cat_to_locate") instance=ExtResource("2_7qh87")]
-position = Vector2(584, 219)
+position = Vector2(622, 244)
 cat_to_locate = NodePath("../DrugDealerCat")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1900713456 groups=["navigation_polygon_source_geometry_group"]]
@@ -43,4 +47,17 @@ collision_layer = 15
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1087953085]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_0ey5w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=620029651]
+position = Vector2(360, -115)
+shape = SubResource("RectangleShape2D_gku2u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1626899315]
+position = Vector2(347, 105)
+shape = SubResource("RectangleShape2D_gku2u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1129840898]
+position = Vector2(584, -3)
 shape = SubResource("RectangleShape2D_0ey5w")

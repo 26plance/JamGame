@@ -5,12 +5,13 @@ extends CharacterBody2D
 const SPEED = 300.0
 func _ready():
 	motion_mode = MOTION_MODE_FLOATING
-	
+	self.add_to_group("npcs")
+
 
 func _physics_process(_delta: float) -> void:
 	# Add the gravity.
 	#if not is_on_floor():
-		#velocity += get_gravity() * delta
+		#velocity += get_gravity() * deltas
 
 	# Handle jump.
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
