@@ -48,6 +48,7 @@ scale = Vector2(3.52, 3.52)
 texture = ExtResource("1_vbqm5")
 
 [node name="transition" parent="." unique_id=1792177419 instance=ExtResource("4_h6ki8")]
+visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="Panel/VBoxContainer/quit" to="." method="_on_quit_pressed"]
