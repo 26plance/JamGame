@@ -11,7 +11,7 @@ func _ready():
 
 func _physics_process(_delta: float) -> void:
 	if follow_target == null or follow_target.position_history.size() < follow_index :
-		return
+		follow_index = -1
 	var target_pos = follow_target.position_history[follow_index]
 	var distance = global_position.distance_to(target_pos)
 	if distance > min_distance:

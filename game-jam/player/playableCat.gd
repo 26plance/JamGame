@@ -57,7 +57,7 @@ func spawn_new_cat():
 	add_sibling(new_cat)
 	new_cat.add_to_group("followingcats")
 	var cat_count = get_tree().get_nodes_in_group("followingcats").size()
-	new_cat.follow_index = cat_count * 15
+	new_cat.follow_index = cat_count * 7
 	new_cat.follow_target = self
 	new_cat.global_position = global_position
 func broadcast_animation(anim_name: String):
