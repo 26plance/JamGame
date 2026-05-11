@@ -7,6 +7,9 @@ extends CharacterBody2D
 var position_history: Array[Vector2] =[]
 const MAX_HISTORY = 300
 const SPEED = 300.0
+var added_velocity = Vector2()
+
+const flung_cat_slow_down = 1000
 
 func _ready():
 	motion_mode = MOTION_MODE_FLOATING
@@ -15,11 +18,18 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
+	velocity = Vector2()
+	if added_velocity.length() > 0:
+		print(added_velocity)
+		added_velocity = added_velocity.move_toward(Vector2.ZERO, flung_cat_slow_down * delta)
+		velocity = added_velocity
+		
+	
 	var direction := Input.get_vector("leftward","rightward","upward","downward")
 	
 	# Handle Walking
 	if direction != Vector2.ZERO:
-		velocity = direction * SPEED
+		velocity += direction * SPEED
 		if Input.is_action_pressed("leftward"): play_and_sync("side_walk_to_left")
 		elif Input.is_action_pressed("rightward"): play_and_sync("side_walk")
 		elif Input.is_action_pressed("upward"): play_and_sync("back_walk")

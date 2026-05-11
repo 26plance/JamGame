@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c5tc5i84smmie" path="res://player/playableCat.tscn" id="1_msb6d"]
 [ext_resource type="PackedScene" uid="uid://ck1qwrbkm6unc" path="res://Npc/HumanNpc.tscn" id="2_7qh87"]
 [ext_resource type="PackedScene" uid="uid://cfdjx0lw3md3s" path="res://Npc/kill_Area.tscn" id="3_0ey5w"]
+[ext_resource type="PackedScene" uid="uid://03b58smqkv8j" path="res://Obsticals/cat_flinger.tscn" id="4_gku2u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_msb6d"]
 vertices = PackedVector2Array(2956.461, -1183.8281, 2587.9922, 2449.1406, 1501, 565, 1501, 125, -590.1719, -1177.0625, 1455.5, 118, 536.5, 285.5, 536.5, 60.5, 692, 127, 692, 567, -1092.7734, 2306.2031, 1442.5, 568, 1455.5, 125, 872.5, 118, 872.5, 127, 253.5, 60.5, -1807.3203, 182.64844, 253.5, 285.5, 859.5, 567, 859.5, 568, 1442.5, 565)
@@ -22,6 +23,9 @@ size = Vector2(423, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4h8n"]
 size = Vector2(180, 172)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ochfl"]
+size = Vector2(72, 75)
 
 [node name="Node2D" type="Node2D" unique_id=1969125852]
 
@@ -82,3 +86,11 @@ position = Vector2(-239, 111)
 position = Vector2(287, 24)
 shape = SubResource("RectangleShape2D_l4h8n")
 debug_color = Color(0.97120744, 0, 0.45275337, 0.41960785)
+
+[node name="CatFlinger" parent="." unique_id=956430547 instance=ExtResource("4_gku2u")]
+position = Vector2(268, -33)
+rotation = -1.5712156
+desired_cat_fling_velocity = Vector2(2000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatFlinger" unique_id=484711669]
+shape = SubResource("RectangleShape2D_ochfl")

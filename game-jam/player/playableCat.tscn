@@ -455,6 +455,7 @@ animations = [{
 radius = 20.0
 
 [node name="playableCat" type="CharacterBody2D" unique_id=221570195 groups=["cat"]]
+collision_layer = 4
 motion_mode = 1
 up_direction = Vector2(0, 1)
 script = ExtResource("1_ysb7s")
