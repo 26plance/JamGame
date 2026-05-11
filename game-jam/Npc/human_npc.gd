@@ -124,7 +124,7 @@ func get_index_of_a_point(point:Vector2):
 
 func die():
 	queue_free()
-	PointHandler.add_score(1)
+	PointHandler.add_score(1,global_position)
 	remove_from_group("npcs")
 
 

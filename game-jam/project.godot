@@ -53,6 +53,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 navigation_polygon_source_geometry_group=""
 npcs=""
+"main cat"=""
 
 [gui]
 
