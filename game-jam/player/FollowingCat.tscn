@@ -14,7 +14,8 @@ script = ExtResource("1_ltbar")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=923823483]
 sprite_frames = ExtResource("2_qnb8a")
-animation = &"sit_forward"
+animation = &"walk_forward"
+frame_progress = 0.9176771
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1846696026]
 shape = SubResource("CircleShape2D_qnb8a")

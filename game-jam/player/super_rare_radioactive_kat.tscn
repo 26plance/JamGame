@@ -97,7 +97,11 @@ gradient = SubResource("Gradient_hx5yt")
 fill = 1
 fill_from = Vector2(0.526087, 0.5217391)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx5yt"]
+size = Vector2(26, 9)
+
 [node name="super_rare_radioactive_kat" type="CharacterBody2D" unique_id=1204380946]
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=204530456]
 sprite_frames = SubResource("SpriteFrames_fm4wm")
@@ -111,3 +115,8 @@ position = Vector2(-5, 0)
 color = Color(0.9933676, 0.9933675, 1.4631748e-05, 1)
 energy = 10.16
 texture = SubResource("GradientTexture2D_v0fjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871957819]
+y_sort_enabled = true
+position = Vector2(-3, -0.5)
+shape = SubResource("RectangleShape2D_hx5yt")
