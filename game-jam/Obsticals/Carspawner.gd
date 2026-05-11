@@ -12,7 +12,9 @@ func _process(delta: float) -> void:
 		timercurant = true
 		await  get_tree().create_timer(timetillspawn).timeout
 		var cartospawn = load("res://Obsticals/car.tscn")
+		var random_hue = randf() 
 		var car = cartospawn.instantiate()
+		car.modulate = Color.from_hsv(random_hue, 0.8, 0.9)
 		if vertical and direction > 0:
 			car.y_velocity = -10
 		elif vertical and direction < 0:

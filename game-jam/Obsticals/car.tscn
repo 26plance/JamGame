@@ -31,10 +31,13 @@ animations = [{
 size = Vector2(24, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_738xc"]
-size = Vector2(109.5, 38)
+size = Vector2(88, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2ja3"]
+size = Vector2(22.75, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md7ul"]
-size = Vector2(36.5, 89)
+size = Vector2(22.75, 32)
 
 [node name="Car" type="CharacterBody2D" unique_id=1351577253]
 position = Vector2(0, -2)
@@ -57,7 +60,7 @@ position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_5falx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980937966]
-position = Vector2(-3, 1)
+position = Vector2(-12, 1)
 shape = SubResource("RectangleShape2D_738xc")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1357516865]
@@ -70,13 +73,13 @@ avoidance_enabled = true
 position = Vector2(150, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea" unique_id=2087148322]
-position = Vector2(-89.5, -4.5)
-shape = SubResource("RectangleShape2D_md7ul")
+position = Vector2(-110, -5)
+shape = SubResource("RectangleShape2D_h2ja3")
 
 [node name="CatFlinger" parent="." unique_id=956430547 instance=ExtResource("4_5falx")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatFlinger" unique_id=443228808]
-position = Vector2(74, 2)
+position = Vector2(48, 2)
 shape = SubResource("RectangleShape2D_md7ul")
 
 [connection signal="area_entered" from="roadpart detection" to="." method="_on_roadpart_detection_area_entered"]

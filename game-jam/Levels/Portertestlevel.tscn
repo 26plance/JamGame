@@ -37,6 +37,7 @@ position = Vector2(-424, -112)
 
 [node name="playableCat" parent="." unique_id=221570195 instance=ExtResource("5_kma2r")]
 position = Vector2(560, 240)
+collision_layer = 1
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=153451466]
 position = Vector2(0, -128)
