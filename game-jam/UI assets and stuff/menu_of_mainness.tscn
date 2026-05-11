@@ -33,13 +33,30 @@ theme_override_constants/separation = 10
 layout_mode = 2
 text = "Play"
 
+[node name="credits" type="Button" parent="Panel/VBoxContainer" unique_id=42406985]
+layout_mode = 2
+text = "Credits"
+
 [node name="quit" type="Button" parent="Panel/VBoxContainer" unique_id=1493667719]
 layout_mode = 2
 text = "	Quit
 "
 
 [node name="transition" parent="." unique_id=1792177419 instance=ExtResource("2_hl8kj")]
+visible = false
 layout_mode = 1
+<<<<<<< Updated upstream
+=======
+
+[node name="Label" type="Label" parent="." unique_id=248406634]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 216.0
+offset_right = 703.0
+offset_bottom = 239.0
+text = "we don't have a title yet sooooo...."
+>>>>>>> Stashed changes
 
 [connection signal="pressed" from="Panel/VBoxContainer/pllay" to="." method="_on_pllay_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/quit" to="." method="_on_quit_pressed"]
