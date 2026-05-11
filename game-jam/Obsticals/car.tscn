@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="1_1pdle"]
 [ext_resource type="Script" uid="uid://cs3g0r2xve4u1" path="res://Obsticals/car.gd" id="1_738xc"]
 [ext_resource type="PackedScene" uid="uid://cfdjx0lw3md3s" path="res://Npc/kill_Area.tscn" id="3_738xc"]
+[ext_resource type="PackedScene" uid="uid://03b58smqkv8j" path="res://Obsticals/cat_flinger.tscn" id="4_5falx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5falx"]
 size = Vector2(24, 20)
@@ -11,10 +12,11 @@ size = Vector2(24, 20)
 size = Vector2(109.5, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md7ul"]
-size = Vector2(15, 89)
+size = Vector2(36.5, 89)
 
 [node name="Car" type="CharacterBody2D" unique_id=1351577253]
 position = Vector2(0, -2)
+collision_mask = 5
 script = ExtResource("1_738xc")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=356022682]
@@ -46,6 +48,12 @@ position = Vector2(150, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea" unique_id=2087148322]
 position = Vector2(-89.5, -4.5)
+shape = SubResource("RectangleShape2D_md7ul")
+
+[node name="CatFlinger" parent="." unique_id=956430547 instance=ExtResource("4_5falx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatFlinger" unique_id=443228808]
+position = Vector2(74, 2)
 shape = SubResource("RectangleShape2D_md7ul")
 
 [connection signal="area_entered" from="roadpart detection" to="." method="_on_roadpart_detection_area_entered"]

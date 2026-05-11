@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://03b58smqkv8j"]
+
+[ext_resource type="Script" uid="uid://bjutoa7d3ho1v" path="res://Obsticals/cat_flinger.gd" id="1_a7qgs"]
+
+[node name="CatFlinger" type="Area2D" unique_id=956430547]
+collision_mask = 5
+script = ExtResource("1_a7qgs")
+desired_cat_fling_velocity = Vector2(1000, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
