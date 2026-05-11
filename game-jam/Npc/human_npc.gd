@@ -99,15 +99,17 @@ func check_if_cat_in_line_of_sight(delta):
 						if current_state != NpcState.Following:
 							chase_time_disinterest = 0
 						current_state = NpcState.Following
-						
+						calculate_target_positon()
 					else:
 						current_state = NpcState.Scared
+						calculate_target_positon()
 			else:
 				cat_seen_for_how_long = max(cat_seen_for_how_long - delta, 0)
 				match current_state:
 					NpcState.Following,NpcState.Scared:
 						if cat_seen_for_how_long < LOSE_TRACK_OF_TIME:
 							current_state = NpcState.Wandering
+							calculate_target_positon()
 	else:
 		print("ncp doens't have a tie to a cat will not follow if sees it")
 
@@ -131,3 +133,30 @@ func die():
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
+
+
+func cat_meowed(meow_posion, delta):
+	if cat_to_locate:
+		var space_state = get_world_2d().direct_space_state
+		
+		var origin = global_transform.origin
+		var destination = cat_to_locate.global_position # 20 units forward
+		var query = PhysicsRayQueryParameters2D.create(origin, destination)
+		var result = space_state.intersect_ray(query)
+		if result:
+			if result.collider is PlayableCat:
+				cat_seen_for_how_long += 2 * delta
+				chase_time_disinterest -= 1 * delta
+
+func cat_hissed(hiss_positon, delta):
+	if cat_to_locate:
+		var space_state = get_world_2d().direct_space_state
+		
+		var origin = global_transform.origin
+		var destination = cat_to_locate.global_position # 20 units forward
+		var query = PhysicsRayQueryParameters2D.create(origin, destination)
+		var result = space_state.intersect_ray(query)
+		if result:
+			if result.collider is PlayableCat:
+				chase_time_disinterest += 2 * delta
+				cat_seen_for_how_long -= 2 * delta
