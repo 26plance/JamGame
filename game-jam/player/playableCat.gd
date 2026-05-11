@@ -37,6 +37,11 @@ func _physics_process(delta: float) -> void:
 		if position_history.size() > MAX_HISTORY:
 			position_history.pop_back()
 	move_and_slide()
+	if Input.is_action_just_pressed("pause"):
+		var pausemenu = load("res://UI assets and stuff/paws_menu.tscn")
+		var pause = pausemenu.instantiate()
+		add_child(pause)
+		get_tree().paused = !get_tree().paused
 
 # New Helper Function
 func play_and_sync(anim_name: String):
@@ -56,7 +61,9 @@ func _input(event):
 
 
 func spawn_new_cat(glbal_positon:Vector2):
+	var random_hue = randf() 
 	var new_cat = cat_scene.instantiate()
+	new_cat.modulate = Color.from_hsv(random_hue, 0.8, 0.9)
 	add_sibling(new_cat)
 	new_cat.add_to_group("followingcats")
 	var cat_count = get_tree().get_nodes_in_group("followingcats").size()

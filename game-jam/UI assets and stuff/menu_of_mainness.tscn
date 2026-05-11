@@ -40,7 +40,6 @@ text = "	Quit
 
 [node name="transition" parent="." unique_id=1792177419 instance=ExtResource("2_hl8kj")]
 layout_mode = 1
-mouse_filter = 2
 
 [connection signal="pressed" from="Panel/VBoxContainer/pllay" to="." method="_on_pllay_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/quit" to="." method="_on_quit_pressed"]

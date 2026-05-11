@@ -63,10 +63,10 @@ mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=785110165]
 layout_mode = 0
-offset_left = -7713.0
-offset_top = -7017.0
-offset_right = 10853.0
-offset_bottom = 7161.0
+offset_left = -7720.0
+offset_top = -7048.0
+offset_right = 10846.0
+offset_bottom = 7130.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
