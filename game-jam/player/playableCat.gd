@@ -2,15 +2,15 @@ class_name PlayableCat
 extends CharacterBody2D
 @onready var cat_scene = preload("res://player/FollowingCat.tscn")
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+
+
 var position_history: Array[Vector2] =[]
 const MAX_HISTORY = 300
 const SPEED = 300.0
+
 func _ready():
 	motion_mode = MOTION_MODE_FLOATING
-
-	
-
-
+	PointHandler.score_changed.connect(score_changed)
 	sprite_2d.play("sit_forward")
 
 
@@ -49,16 +49,27 @@ func start_sit_timer(stand_anim: String, sit_anim: String, wait_time: float):
 	await get_tree().create_timer(wait_time).timeout
 	if velocity == Vector2.ZERO: # Only sit if we haven't started moving again
 		play_and_sync(sit_anim)
+
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		spawn_new_cat()
-func spawn_new_cat():
+		spawn_new_cat(global_position)
+
+
+func spawn_new_cat(glbal_positon:Vector2):
 	var new_cat = cat_scene.instantiate()
 	add_sibling(new_cat)
 	new_cat.add_to_group("followingcats")
 	var cat_count = get_tree().get_nodes_in_group("followingcats").size()
-	new_cat.follow_index = cat_count * 15
+	new_cat.follow_index = cat_count * 7
 	new_cat.follow_target = self
-	new_cat.global_position = global_position
+	new_cat.global_position = glbal_positon
+
 func broadcast_animation(anim_name: String):
 	get_tree().call_group("followingcats", "sync_animation", anim_name)
+
+func score_changed(positon_of_object):
+	spawn_new_cat(positon_of_object)
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	pass # Replace with function body.

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ck1qwrbkm6unc"]
 
 [ext_resource type="Script" uid="uid://c6kc6bo7xb4nv" path="res://Npc/human_npc.gd" id="1_cv0od"]
+[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="2_i8b1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cv0od"]
 radius = 75.059975
@@ -12,6 +13,7 @@ script = ExtResource("1_cv0od")
 shape = SubResource("CircleShape2D_cv0od")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=274592157]
+texture = ExtResource("2_i8b1p")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=60759357]
 avoidance_enabled = true

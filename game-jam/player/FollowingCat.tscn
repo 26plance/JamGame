@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnb8a"]
 
-[node name="FollowingCats" type="CharacterBody2D" unique_id=130210116]
+[node name="FollowingCats" type="CharacterBody2D" unique_id=130210116 groups=["cat"]]
 collision_layer = 0
 collision_mask = 0
 motion_mode = 1
@@ -14,7 +14,8 @@ script = ExtResource("1_ltbar")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=923823483]
 sprite_frames = ExtResource("2_qnb8a")
-animation = &"sit_forward"
+animation = &"walk_forward"
+frame_progress = 0.9176771
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1846696026]
 shape = SubResource("CircleShape2D_qnb8a")

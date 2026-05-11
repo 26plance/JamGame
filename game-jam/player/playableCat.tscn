@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cytghupq10fv" path="res://player/playableCat.gd" id="1_ysb7s"]
 [ext_resource type="Texture2D" uid="uid://ksf36ompk822" path="res://player/kitty kat game jam woah.png" id="2_vfup7"]
 [ext_resource type="PackedScene" uid="uid://bmglco8ib1oqx" path="res://UI assets and stuff/In Game Score/in game Ui.tscn" id="3_ysb7s"]
+[ext_resource type="PackedScene" uid="uid://dvkk3fumf66u7" path="res://player/meow_and_hiss.tscn" id="4_jwdtt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfup7"]
 atlas = ExtResource("2_vfup7")
@@ -453,7 +454,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfup7"]
 radius = 20.0
 
-[node name="playableCat" type="CharacterBody2D" unique_id=221570195]
+[node name="playableCat" type="CharacterBody2D" unique_id=221570195 groups=["cat"]]
 motion_mode = 1
 up_direction = Vector2(0, 1)
 script = ExtResource("1_ysb7s")
@@ -477,3 +478,7 @@ radius = 30.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1094272834]
 
 [node name="InGameUi" parent="CanvasLayer" unique_id=957952290 instance=ExtResource("3_ysb7s")]
+
+[node name="MeowAndHiss" parent="." unique_id=800152645 instance=ExtResource("4_jwdtt")]
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
