@@ -15,11 +15,8 @@ agent_radius = 80.0
 [node name="Portertestlevel" type="Node2D" unique_id=394625645]
 
 [node name="Node2D" parent="." unique_id=1667444092 instance=ExtResource("1_olxex")]
-position = Vector2(32, 336)
+position = Vector2(-712, 400)
 direction = 1
-
-[node name="Turnarea" parent="." unique_id=707995603 instance=ExtResource("2_so38g")]
-position = Vector2(664, 336)
 
 [node name="TileMapLayer" parent="." unique_id=1951160323 instance=ExtResource("3_y6621")]
 position = Vector2(-200, 304)
@@ -42,17 +39,34 @@ position = Vector2(-424, -112)
 position = Vector2(560, 240)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=153451466]
-position = Vector2(0, -64)
+position = Vector2(0, -128)
 navigation_polygon = SubResource("NavigationPolygon_kma2r")
 
-[node name="Turnarea2" parent="." unique_id=822431744 instance=ExtResource("2_so38g")]
-position = Vector2(664, 400)
-
 [node name="Node2D2" parent="." unique_id=445653549 instance=ExtResource("1_olxex")]
-position = Vector2(1920, 400)
+position = Vector2(1920, 336)
 direction = -1
 
 [node name="Node2D3" parent="." unique_id=1034047728 instance=ExtResource("1_olxex")]
 position = Vector2(664, 1128)
 vertical = true
 direction = 1
+
+[node name="Turnarea" parent="." unique_id=707995603 instance=ExtResource("2_so38g")]
+position = Vector2(664, 336)
+leftturnr = false
+straitr = false
+rightturnr = false
+rightturnu = false
+leftturnd = false
+straitd = false
+rightturnd = false
+
+[node name="Turnarea2" parent="." unique_id=822431744 instance=ExtResource("2_so38g")]
+position = Vector2(664, 400)
+leftturnl = false
+straitl = false
+rightturnl = false
+rightturnr = false
+leftturnu = false
+leftturnd = false
+straitd = false
