@@ -18,7 +18,6 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	velocity = Vector2()
 	if added_velocity.length() > 0:
-		print(added_velocity)
 		added_velocity = added_velocity.move_toward(Vector2.ZERO, flung_cat_slow_down * delta)
 		velocity = added_velocity
 	

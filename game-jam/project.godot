@@ -54,6 +54,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 navigation_polygon_source_geometry_group=""
 npcs=""
 cat=""
+Wanderpoints=""
 
 [gui]
 
@@ -119,3 +120,4 @@ locale/translations_pot_files=PackedStringArray("res://test.dialogue")
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 viewport/hdr_2d=true
+environment/defaults/default_clear_color=Color(1.8049032e-07, 0.36770436, 0.15021673, 1)

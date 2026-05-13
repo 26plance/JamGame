@@ -32,9 +32,10 @@ const JUMP_VELOCITY = -400.0
 @export var cat_to_locate:PlayableCat
 
 func _ready() -> void:
-	for child_node in get_children():
+	for child_node in get_tree().get_nodes_in_group("Wanderpoints"):
 		if child_node is Marker2D:
 			target_wandering_points.append(child_node.global_position)
+		
 
 
 func calculate_target_positon():

@@ -8,10 +8,10 @@ var speedset = false
 var cartype = "emergency"
 var Cartypes = ["standard","slow","fast","emergency"]
 var carstypedata = {
-	"standard":{"speed": 35},
-	"slow": {"speed": 15},
-	"fast":{"speed": 55},
-	"emergency": {"speed": 70}
+	"standard":{"speed": 35,},
+	"slow": {"speed": 15,},
+	"fast":{"speed": 55,},
+	"emergency": {"speed": 70,}
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 			speedset = true
 			y_velocity *= carstypedata[cartype]["speed"]
 			x_velocity *= carstypedata[cartype]["speed"]
+			print($CatFlinger.desired_cat_fling_velocity.x)
 	if not stop:
 		velocity.x = x_velocity
 		velocity.y = y_velocity
@@ -37,6 +38,7 @@ func _process(delta: float) -> void:
 			velocity.y -= 20
 	var target_angle = atan2(velocity.y, velocity.x)
 	rotation = lerp_angle(rotation, target_angle, 0.2)
+	$CatFlinger.desired_cat_fling_velocity.x = velocity.length()*2
 	move_and_slide()
 
 
