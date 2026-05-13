@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 			if (cat_to_locate.global_position - global_transform.origin).length() > distance_for_npc_to_keep_interest:
 				chase_time_disinterest += delta
 				print(chase_time_disinterest)
+				calculate_target_positon()
 	if navigation_agent_2d.is_navigation_finished():
 		point_just_moved_to = navigation_agent_2d.target_position
 		calculate_target_positon()

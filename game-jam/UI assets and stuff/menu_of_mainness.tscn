@@ -45,8 +45,7 @@ text = "	Quit
 [node name="transition" parent="." unique_id=1792177419 instance=ExtResource("2_hl8kj")]
 visible = false
 layout_mode = 1
-<<<<<<< Updated upstream
-=======
+
 
 [node name="Label" type="Label" parent="." unique_id=248406634]
 layout_mode = 0
@@ -55,7 +54,7 @@ offset_top = 216.0
 offset_right = 703.0
 offset_bottom = 239.0
 text = "we don't have a title yet sooooo...."
->>>>>>> Stashed changes
+
 
 [connection signal="pressed" from="Panel/VBoxContainer/pllay" to="." method="_on_pllay_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/credits" to="." method="_on_credits_pressed"]

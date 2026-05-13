@@ -12,12 +12,14 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is PlayableDrugDealerCat:
-		player_inside_area = true
+	pass
+	#if body is PlayableDrugDealerCat:
+		#player_inside_area = true
 
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if player_inside_area:
-		if  body is PlayableDrugDealerCat:
-			player_inside_area = false
+	pass
+	#if player_inside_area:
+		#if  body is PlayableDrugDealerCat:
+			#player_inside_area = false
