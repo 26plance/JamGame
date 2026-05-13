@@ -2,6 +2,7 @@ class_name PlayableCat
 extends CharacterBody2D
 @onready var cat_scene = preload("res://player/FollowingCat.tscn")
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var cat_herd_follow: Marker2D = $"cat herd follow"
 
 
 var position_history: Array[Vector2] =[]
@@ -9,6 +10,8 @@ const MAX_HISTORY = 300
 const SPEED = 300.0
 var added_velocity = Vector2()
 
+var cat_follow_distance = 100
+var last_direction = Vector2(0,-1)
 const flung_cat_slow_down = 1000
 
 func _ready():
@@ -27,14 +30,18 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_vector("leftward","rightward","upward","downward")
 	
+	
 	# Handle Walking
 	if direction != Vector2.ZERO:
 		velocity += direction * SPEED
+		cat_herd_follow.position = direction * -1 * cat_follow_distance
+		last_direction = direction
 		if Input.is_action_pressed("leftward"): play_and_sync("side_walk_to_left")
 		elif Input.is_action_pressed("rightward"): play_and_sync("side_walk")
 		elif Input.is_action_pressed("upward"): play_and_sync("back_walk")
 		elif Input.is_action_pressed("downward"): play_and_sync("walk_forward")
 	else:
+		cat_herd_follow.position = last_direction * -1 * cat_follow_distance
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED * delta * 15)
 
 	# Handle Releases (Moved logic to a separate function to avoid 'await' glitches)

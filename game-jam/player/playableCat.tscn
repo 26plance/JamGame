@@ -482,4 +482,6 @@ radius = 30.0
 
 [node name="MeowAndHiss" parent="." unique_id=800152645 instance=ExtResource("4_jwdtt")]
 
+[node name="cat herd follow" type="Marker2D" parent="." unique_id=224010993]
+
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
