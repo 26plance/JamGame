@@ -4,7 +4,7 @@ extends Node2D
 var timetillspawn = 0
 var timercurant = false
 func  _ready() -> void:
-	timetillspawn = randi_range(2,15)
+	timetillspawn = randi_range(12,25)
 	
 func _process(delta: float) -> void:
 	if not timercurant:
@@ -18,4 +18,4 @@ func _process(delta: float) -> void:
 		npc.cat_to_locate = cat
 		get_parent().add_child(npc)
 		timercurant = false
-		timetillspawn = randi_range(2,15)
+		timetillspawn = randi_range(12,25)

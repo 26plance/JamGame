@@ -10,7 +10,7 @@ const MAX_HISTORY = 300
 const SPEED = 300.0
 var added_velocity = Vector2()
 
-var cat_follow_distance = 100
+var cat_follow_distance = 10
 var last_direction = Vector2(0,-1)
 const flung_cat_slow_down = 1000
 

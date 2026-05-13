@@ -39,6 +39,10 @@ func _process(delta: float) -> void:
 	var target_angle = atan2(velocity.y, velocity.x)
 	rotation = lerp_angle(rotation, target_angle, 0.2)
 	$CatFlinger.desired_cat_fling_velocity.x = velocity.length()*2
+	if cartype == "slow":
+		$CatFlinger.desired_cat_fling_velocity.x = velocity.length()*6
+	elif cartype == "standard":
+		$CatFlinger.desired_cat_fling_velocity.x = velocity.length()*4
 	move_and_slide()
 
 

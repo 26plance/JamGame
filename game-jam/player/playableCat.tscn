@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cytghupq10fv" path="res://player/playableCat.gd" id="1_ysb7s"]
 [ext_resource type="Texture2D" uid="uid://ksf36ompk822" path="res://player/kitty kat game jam woah.png" id="2_vfup7"]
 [ext_resource type="PackedScene" uid="uid://bmglco8ib1oqx" path="res://UI assets and stuff/In Game Score/in game Ui.tscn" id="3_ysb7s"]
-[ext_resource type="PackedScene" uid="uid://dvkk3fumf66u7" path="res://player/meow_and_hiss.tscn" id="4_jwdtt"]
+[ext_resource type="PackedScene" path="res://player/meow_and_hiss.tscn" id="4_jwdtt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfup7"]
 atlas = ExtResource("2_vfup7")
@@ -452,7 +452,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfup7"]
-radius = 20.0
+radius = 14.0
 
 [node name="playableCat" type="CharacterBody2D" unique_id=221570195 groups=["cat"]]
 collision_layer = 4
@@ -463,7 +463,7 @@ script = ExtResource("1_ysb7s")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1215769118]
 position = Vector2(0, -9.536744e-07)
 sprite_frames = SubResource("SpriteFrames_0imij")
-animation = &"sit_forward"
+animation = &"side_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1439527497]
 shape = SubResource("CircleShape2D_vfup7")
