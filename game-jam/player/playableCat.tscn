@@ -474,7 +474,7 @@ position_smoothing_enabled = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1581843630]
 avoidance_enabled = true
-radius = 30.0
+radius = 15.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1094272834]
 

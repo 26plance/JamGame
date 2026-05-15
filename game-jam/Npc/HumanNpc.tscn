@@ -19,6 +19,5 @@ texture = ExtResource("2_i8b1p")
 avoidance_enabled = true
 radius = 80.0
 max_speed = 300.0
-debug_enabled = true
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

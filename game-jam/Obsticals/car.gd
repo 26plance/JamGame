@@ -51,17 +51,12 @@ func _on_roadpart_detection_area_entered(area: Area2D) -> void:
 	if area.Roadpart == "turn":
 		if area.position.x - 5 > position.x:
 			desision = area.rightoptions.pick_random()
-			print("right",area.position.x - 20," "+str(position.x))
 		elif area.position.x + 5 < position.x:
 			desision = area.leftoptions.pick_random()
-			print("left")
 		elif area.position.y - 5 > position.y:
 			desision = area.downoptions.pick_random()
-			print("down")
 		elif area.position.y + 5 < position.y:
 			desision = area.upoptions.pick_random()
-			print("up")
-		print(desision)
 		match desision:
 			"left":
 				if x_velocity != 0:

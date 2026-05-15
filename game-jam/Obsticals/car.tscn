@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cs3g0r2xve4u1" path="res://Obsticals/car.gd" id="1_738xc"]
 [ext_resource type="Texture2D" uid="uid://cqi5hy56pj5if" path="res://Obsticals/kar.png" id="2_5falx"]
 [ext_resource type="PackedScene" uid="uid://cfdjx0lw3md3s" path="res://Npc/kill_Area.tscn" id="3_738xc"]
+[ext_resource type="Script" uid="uid://dh1iqxbvj2md2" path="res://Obsticals/roadpart_detection.gd" id="3_md7ul"]
 [ext_resource type="PackedScene" uid="uid://03b58smqkv8j" path="res://Obsticals/cat_flinger.tscn" id="4_5falx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md7ul"]
@@ -28,7 +29,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5falx"]
-size = Vector2(24, 20)
+size = Vector2(18, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_738xc"]
 size = Vector2(88, 40)
@@ -42,6 +43,7 @@ size = Vector2(17.6875, 32)
 [node name="Car" type="CharacterBody2D" unique_id=1351577253]
 position = Vector2(0, -2)
 collision_layer = 5
+collision_mask = 0
 script = ExtResource("1_738xc")
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=851428068]
@@ -54,9 +56,10 @@ frame_progress = 0.32805234
 [node name="roadpart detection" type="Area2D" parent="." unique_id=1415151540]
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("3_md7ul")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="roadpart detection" unique_id=132761271]
-position = Vector2(2, 0)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_5falx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980937966]
