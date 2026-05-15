@@ -38,19 +38,48 @@ func _physics_process(delta: float) -> void:
 		
 		
 		navigation_agent_2d.velocity = global_position.direction_to(way_to_go) * speed
+		figure_out_animation_from_velocity(navigation_agent_2d.velocity)
+
+func figure_out_animation_from_velocity(velocity:Vector2):
+	var angle = velocity.angle()
 	
+	var closest_distance = 10000000
+	var current_animation = "sit_forward"
+	
+	var directions = {
+		0:"side_walk",
+		90:"walk_forward",
+		-90:"back_walk",
+		180:"side_walk_to_left",
+		-180:"side_walk_to_left"
+	}
+	# figure out closedt directions in positive and negitive ways, need to to do this for reasons
+	for direction in directions:
+		var diffence_in_angle = abs(angle_difference(angle,deg_to_rad(direction)))
+		print(directions[direction])
+		print(diffence_in_angle)
+		if diffence_in_angle < closest_distance:
+			closest_distance = diffence_in_angle
+			current_animation = directions[direction]
+	
+	npc_sprite.play(current_animation)
+	
+	
+
 func sync_animation(anim_name: String):
 	# If the sprite variable hasn't loaded yet, try to find it manually
-	if npc_sprite == null:
-		npc_sprite = get_node_or_null("AnimatedSprite2D")
-	
-	# Only play if the sprite exists and has the animation
-	if npc_sprite and npc_sprite.sprite_frames.has_animation(anim_name):
-		npc_sprite.play(anim_name)
+	pass
+	#if npc_sprite == null:
+		#npc_sprite = get_node_or_null("AnimatedSprite2D")
+	#
+	## Only play if the sprite exists and has the animation
+	#if npc_sprite and npc_sprite.sprite_frames.has_animation(anim_name):
+		#npc_sprite.play(anim_name)
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	velocity += added_velocity
+	
 	move_and_slide()
  
