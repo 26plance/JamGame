@@ -73,13 +73,15 @@ func start_sit_timer(stand_anim: String, sit_anim: String, wait_time: float):
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		spawn_new_cat(global_position)
+		call_deferred_thread_group("spawn_new_cat",global_position)
+		
 
 
 func spawn_new_cat(glbal_positon:Vector2):
 	var random_hue = randf() 
 	var new_cat = cat_scene.instantiate()
 	new_cat.modulate = Color.from_hsv(random_hue, 0.8, 0.9)
+	
 	add_sibling(new_cat)
 	new_cat.add_to_group("followingcats")
 	var cat_count = get_tree().get_nodes_in_group("followingcats").size()
@@ -91,7 +93,7 @@ func broadcast_animation(anim_name: String):
 	get_tree().call_group("followingcats", "sync_animation", anim_name)
 
 func score_changed(positon_of_object):
-	spawn_new_cat(positon_of_object)
+	call_deferred_thread_group("spawn_new_cat",positon_of_object)
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
