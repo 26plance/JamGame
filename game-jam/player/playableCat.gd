@@ -72,9 +72,9 @@ func start_sit_timer(stand_anim: String, sit_anim: String, wait_time: float):
 	if velocity == Vector2.ZERO: # Only sit if we haven't started moving again
 		play_and_sync(sit_anim)
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		call_deferred_thread_group("spawn_new_cat",global_position)
+#func _input(event):
+	#if event.is_action_pressed("ui_accept"):
+		#call_deferred_thread_group("spawn_new_cat",global_position)
 		
 
 

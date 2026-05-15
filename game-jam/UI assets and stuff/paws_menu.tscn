@@ -61,5 +61,13 @@ position = Vector2(168, 120)
 scale = Vector2(3.52, 3.52)
 texture = ExtResource("1_vbqm5")
 
+[node name="Label" type="Label" parent="." unique_id=376837547]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 464.0
+offset_right = 739.0
+offset_bottom = 487.0
+text = "use arrow keys and enter to push buttons"
+
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/quit" to="." method="_on_quit_pressed"]

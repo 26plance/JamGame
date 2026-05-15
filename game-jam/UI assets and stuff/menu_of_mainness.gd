@@ -15,7 +15,7 @@ func _ready() -> void:
 func _on_pllay_pressed() -> void:
 	transition.play("fade_out")
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Levels/Portertestlevel.tscn")
+	get_tree().change_scene_to_file("res://UI assets and stuff/gameinstructions.tscn")
 
 
 func _on_quit_pressed() -> void:

@@ -16,6 +16,7 @@ mouse_filter = 1
 script = ExtResource("1_ja85b")
 
 [node name="Panel" type="Panel" parent="." unique_id=1387620136]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 408.0
 offset_top = 256.0
