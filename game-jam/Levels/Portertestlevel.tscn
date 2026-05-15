@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bcfgj1fkx6by7" path="res://Obsticals/roadtiles.tscn" id="3_y6621"]
 [ext_resource type="PackedScene" uid="uid://ck1qwrbkm6unc" path="res://Npc/HumanNpc.tscn" id="4_bkurd"]
 [ext_resource type="PackedScene" uid="uid://c5tc5i84smmie" path="res://player/playableCat.tscn" id="5_kma2r"]
+[ext_resource type="PackedScene" uid="uid://bluyxvy27ylw2" path="res://Npc/npc_spawner.tscn" id="6_2a5bi"]
+[ext_resource type="PackedScene" uid="uid://jjvry31hywvg" path="res://Npc/wanderpoint.tscn" id="7_tg5ga"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kma2r"]
 vertices = PackedVector2Array(2035.4688, 340.84375, 1236.7969, 1270.2109, -334.8828, 1194.6484, -718.4297, 132.5, -333.64844, -401.89844, 959.10156, -462.7422)
@@ -15,16 +17,70 @@ agent_radius = 80.0
 [node name="Portertestlevel" type="Node2D" unique_id=394625645]
 
 [node name="Node2D" parent="." unique_id=1667444092 instance=ExtResource("1_olxex")]
-position = Vector2(32, 336)
+position = Vector2(-712, 400)
 direction = 1
-
-[node name="Turnarea" parent="." unique_id=707995603 instance=ExtResource("2_so38g")]
-position = Vector2(664, 336)
 
 [node name="TileMapLayer" parent="." unique_id=1951160323 instance=ExtResource("3_y6621")]
 position = Vector2(-200, 304)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD8/wAAAgAGAAcAAAD9/wAAAgAGAAcAAAD+/wAAAgAGAAcAAAD//wAAAgAGAAcAAAAAAAAAAgADAAUAAAABAAAAAgADAAUAAAACAAAAAgAGAAcAAAADAAAAAgAGAAcAAAAEAAAAAgADAAUAAAAFAAAAAgAGAAcAAAAGAAAAAgADAAUAAAAHAAAAAgAGAAcAAAAIAAAAAgADAAUAAAAJAAAAAgADAAUAAAAKAAAAAgADAAUAAAALAAAAAgADAAUAAAAMAAAAAgADAAUAAAANAAAAAgABAAcAAAD7/wAAAgADAAUAAAD6/wAAAgADAAUAAAD5/wAAAgAGAAcAAAD4/wAAAgACAAYAAAANAAEAAgAFAAQAAAANAAIAAgAHAAAAAAANAAMAAgAAAAAAAAANAAQAAgAHAAAAAAANAAUAAgAAAAAAAAANAAYAAgAAAAAAAAANAAcAAgAAAAAAAAANAAgAAgAAAAAAAAANAAkAAgAAAAAAAAANAAoAAgAAAAAAAAANAAsAAgAAAAAAAAANAAwAAgABAAIAAAANAP//AgAHAAAAAAANAP7/AgAHAAAAAAANAP3/AgAHAAAAAAANAPz/AgAHAAAAAAANAPv/AgAHAAAAAAAOAAAAAgAGAAcAAAAPAAAAAgAGAAcAAAAQAAAAAgAGAAcAAAARAAAAAgACAAYAAAASAAAAAgAGAAcAAAATAAAAAgADAAUAAAAUAAAAAgACAAYAAAANAPr/AgAAAAAAAAANAPn/AgAHAAAAAAANAPj/AgAHAAAAAAANAPf/AgAHAAAAAAANAPb/AgABAAIAAAANAPX/AgABAAIAAAAVAAAAAgAGAAcAAAAWAAAAAgAGAAcAAAAXAAAAAgAGAAcAAAAYAAAAAgACAAYAAAAZAAAAAgAGAAcAAAAaAAAAAgADAAUAAAAbAAAAAgADAAUAAAAcAAAAAgADAAUAAAAdAAAAAgACAAYAAAAeAAAAAgACAAYAAAAfAAAAAgADAAUAAAAgAAAAAgAGAAcAAAAhAAAAAgAFAAIAAAANAA0AAgAHAAUAAAAhAAEAAgAHAAQAAAAgAAEAAgAHAAYAAAAfAAEAAgACAAQAAAAeAAEAAgACAAQAAAAdAAEAAgACAAQAAAAcAAEAAgAHAAYAAAAbAAEAAgACAAQAAAAaAAEAAgACAAQAAAAZAAEAAgAHAAYAAAAYAAEAAgAGAAUAAAAXAAEAAgAGAAUAAAAWAAEAAgACAAQAAAAVAAEAAgAGAAUAAAAUAAEAAgAGAAUAAAATAAEAAgACAAQAAAASAAEAAgACAAQAAAARAAEAAgAHAAYAAAAQAAEAAgAGAAUAAAAPAAEAAgACAAQAAAAOAAEAAgACAAQAAAAMAAEAAgAHAAYAAAALAAEAAgACAAQAAAAKAAEAAgACAAQAAAAJAAEAAgACAAQAAAAIAAEAAgACAAQAAAAHAAEAAgACAAQAAAAGAAEAAgACAAQAAAAFAAEAAgAHAAYAAAAEAAEAAgAHAAYAAAADAAEAAgAHAAYAAAACAAEAAgAHAAYAAAABAAEAAgAHAAYAAAAAAAEAAgACAAQAAAD//wEAAgAHAAYAAAD+/wEAAgACAAQAAAD9/wEAAgAHAAYAAAD8/wEAAgACAAQAAAD7/wEAAgAHAAYAAAD6/wEAAgACAAQAAAD5/wEAAgACAAQAAAD4/wEAAgACAAQAAAD3/wEAAgAEAAYAAAD3/wAAAgADAAAAAAA=")
+
+[node name="playableCat" parent="." unique_id=221570195 instance=ExtResource("5_kma2r")]
+position = Vector2(560, 240)
+collision_layer = 1
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=153451466]
+position = Vector2(0, -128)
+navigation_polygon = SubResource("NavigationPolygon_kma2r")
+
+[node name="Node2D2" parent="." unique_id=445653549 instance=ExtResource("1_olxex")]
+position = Vector2(1920, 336)
+direction = -1
+
+[node name="Node2D3" parent="." unique_id=1034047728 instance=ExtResource("1_olxex")]
+position = Vector2(664, 1128)
+vertical = true
+direction = 1
+
+[node name="Turnarea" parent="." unique_id=707995603 instance=ExtResource("2_so38g")]
+position = Vector2(664, 336)
+leftturnl = false
+leftturnr = false
+straitr = false
+rightturnr = false
+rightturnu = false
+leftturnd = false
+straitd = false
+rightturnd = false
+
+[node name="Turnarea2" parent="." unique_id=822431744 instance=ExtResource("2_so38g")]
+position = Vector2(664, 400)
+leftturnl = false
+straitl = false
+rightturnl = false
+rightturnr = false
+leftturnu = false
+leftturnd = false
+straitd = false
+
+[node name="NpcSpawner" parent="." unique_id=1639045460 node_paths=PackedStringArray("cat") instance=ExtResource("6_2a5bi")]
+position = Vector2(1152, -72)
+cat = NodePath("../playableCat")
+
+[node name="Wanderpoint" parent="." unique_id=179476238 instance=ExtResource("7_tg5ga")]
+position = Vector2(120, 640)
+
+[node name="Wanderpoint2" parent="." unique_id=1243681683 instance=ExtResource("7_tg5ga")]
+position = Vector2(1088, 784)
+
+[node name="Wanderpoint3" parent="." unique_id=765803831 instance=ExtResource("7_tg5ga")]
+position = Vector2(1096, 72)
+
+[node name="Wanderpoint4" parent="." unique_id=13814097 instance=ExtResource("7_tg5ga")]
+position = Vector2(216, -72)
+
+[node name="Wanderpoint5" parent="." unique_id=1073150902 instance=ExtResource("7_tg5ga")]
+position = Vector2(-312, -176)
 
 [node name="HumanNpc" parent="." unique_id=1986557669 node_paths=PackedStringArray("cat_to_locate") instance=ExtResource("4_bkurd")]
 cat_to_locate = NodePath("../playableCat")
@@ -37,22 +93,3 @@ position = Vector2(488, 176)
 
 [node name="Marker2D3" type="Marker2D" parent="HumanNpc" unique_id=676258659]
 position = Vector2(-424, -112)
-
-[node name="playableCat" parent="." unique_id=221570195 instance=ExtResource("5_kma2r")]
-position = Vector2(560, 240)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=153451466]
-position = Vector2(0, -64)
-navigation_polygon = SubResource("NavigationPolygon_kma2r")
-
-[node name="Turnarea2" parent="." unique_id=822431744 instance=ExtResource("2_so38g")]
-position = Vector2(664, 400)
-
-[node name="Node2D2" parent="." unique_id=445653549 instance=ExtResource("1_olxex")]
-position = Vector2(1920, 400)
-direction = -1
-
-[node name="Node2D3" parent="." unique_id=1034047728 instance=ExtResource("1_olxex")]
-position = Vector2(664, 1128)
-vertical = true
-direction = 1

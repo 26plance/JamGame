@@ -1,38 +1,69 @@
 [gd_scene format=3 uid="uid://c7xc0vjpfwhkp"]
 
-[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="1_1pdle"]
 [ext_resource type="Script" uid="uid://cs3g0r2xve4u1" path="res://Obsticals/car.gd" id="1_738xc"]
+[ext_resource type="Texture2D" uid="uid://cqi5hy56pj5if" path="res://Obsticals/kar.png" id="2_5falx"]
 [ext_resource type="PackedScene" uid="uid://cfdjx0lw3md3s" path="res://Npc/kill_Area.tscn" id="3_738xc"]
+[ext_resource type="Script" uid="uid://dh1iqxbvj2md2" path="res://Obsticals/roadpart_detection.gd" id="3_md7ul"]
+[ext_resource type="PackedScene" uid="uid://03b58smqkv8j" path="res://Obsticals/cat_flinger.tscn" id="4_5falx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md7ul"]
+atlas = ExtResource("2_5falx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2ja3"]
+atlas = ExtResource("2_5falx")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_72ita"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md7ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2ja3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5falx"]
-size = Vector2(24, 20)
+size = Vector2(18, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_738xc"]
-size = Vector2(117, 100)
+size = Vector2(88, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2ja3"]
+size = Vector2(19.375, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md7ul"]
-size = Vector2(15, 89)
+size = Vector2(17.6875, 32)
 
 [node name="Car" type="CharacterBody2D" unique_id=1351577253]
 position = Vector2(0, -2)
+collision_layer = 5
+collision_mask = 0
 script = ExtResource("1_738xc")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=356022682]
-position = Vector2(-1, 1.9999981)
-rotation = -1.5755016
-scale = Vector2(0.78026503, 1)
-texture = ExtResource("1_1pdle")
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=851428068]
+position = Vector2(-0.29901052, 2.1752455)
+rotation = 1.579523
+scale = Vector2(0.77468556, 1.0218799)
+sprite_frames = SubResource("SpriteFrames_72ita")
+frame_progress = 0.32805234
 
 [node name="roadpart detection" type="Area2D" parent="." unique_id=1415151540]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 18
+script = ExtResource("3_md7ul")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="roadpart detection" unique_id=132761271]
-position = Vector2(2, 0)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_5falx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980937966]
-position = Vector2(-6, 1)
+position = Vector2(-12, 2)
 shape = SubResource("RectangleShape2D_738xc")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1357516865]
@@ -45,7 +76,15 @@ avoidance_enabled = true
 position = Vector2(150, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea" unique_id=2087148322]
-position = Vector2(-89.5, -4.5)
+position = Vector2(-111.6875, -5)
+shape = SubResource("RectangleShape2D_h2ja3")
+
+[node name="CatFlinger" parent="." unique_id=956430547 instance=ExtResource("4_5falx")]
+desired_cat_fling_velocity = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatFlinger" unique_id=443228808]
+position = Vector2(39.15625, 2)
 shape = SubResource("RectangleShape2D_md7ul")
 
 [connection signal="area_entered" from="roadpart detection" to="." method="_on_roadpart_detection_area_entered"]
+[connection signal="body_entered" from="roadpart detection" to="." method="_on_roadpart_detection_body_entered"]

@@ -4,17 +4,23 @@
 [ext_resource type="SpriteFrames" uid="uid://xse4n60vdwq4" path="res://player/purple_cat_animation_frames.tres" id="2_qnb8a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnb8a"]
+radius = 8.0
 
-[node name="FollowingCats" type="CharacterBody2D" unique_id=130210116]
-collision_layer = 0
-collision_mask = 0
+[node name="FollowingCats" type="CharacterBody2D" unique_id=130210116 groups=["cat"]]
+collision_layer = 4
 motion_mode = 1
 up_direction = Vector2(0, 1)
 script = ExtResource("1_ltbar")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=923823483]
 sprite_frames = ExtResource("2_qnb8a")
-animation = &"sit_forward"
+animation = &"walk_forward"
+frame_progress = 0.9176771
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1846696026]
 shape = SubResource("CircleShape2D_qnb8a")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=521258607]
+avoidance_enabled = true
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

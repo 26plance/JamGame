@@ -2,29 +2,46 @@ class_name PlayableCat
 extends CharacterBody2D
 @onready var cat_scene = preload("res://player/FollowingCat.tscn")
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var cat_herd_follow: Marker2D = $"cat herd follow"
+
+var cats_following: int = 0
+
 var position_history: Array[Vector2] =[]
 const MAX_HISTORY = 300
 const SPEED = 300.0
+var added_velocity = Vector2()
+
+var cat_follow_distance = 10
+var last_direction = Vector2(0,-1)
+const flung_cat_slow_down = 1000
+
 func _ready():
 	motion_mode = MOTION_MODE_FLOATING
-
-	
-
-
+	PointHandler.score_changed.connect(score_changed)
 	sprite_2d.play("sit_forward")
 
 
 func _physics_process(delta: float) -> void:
+	velocity = Vector2()
+	if added_velocity.length() > 0:
+		added_velocity = added_velocity.move_toward(Vector2.ZERO, flung_cat_slow_down * delta)
+		velocity = added_velocity
+		
+	
 	var direction := Input.get_vector("leftward","rightward","upward","downward")
+	
 	
 	# Handle Walking
 	if direction != Vector2.ZERO:
-		velocity = direction * SPEED
+		velocity += direction * SPEED
+		cat_herd_follow.position = direction * -1 * cat_follow_distance
+		last_direction = direction
 		if Input.is_action_pressed("leftward"): play_and_sync("side_walk_to_left")
 		elif Input.is_action_pressed("rightward"): play_and_sync("side_walk")
 		elif Input.is_action_pressed("upward"): play_and_sync("back_walk")
 		elif Input.is_action_pressed("downward"): play_and_sync("walk_forward")
 	else:
+		cat_herd_follow.position = last_direction * -1 * cat_follow_distance
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED * delta * 15)
 
 	# Handle Releases (Moved logic to a separate function to avoid 'await' glitches)
@@ -37,6 +54,11 @@ func _physics_process(delta: float) -> void:
 		if position_history.size() > MAX_HISTORY:
 			position_history.pop_back()
 	move_and_slide()
+	if Input.is_action_just_pressed("pause"):
+		var pausemenu = load("res://UI assets and stuff/paws_menu.tscn")
+		var pause = pausemenu.instantiate()
+		add_child(pause)
+		get_tree().paused = !get_tree().paused
 
 # New Helper Function
 func play_and_sync(anim_name: String):
@@ -49,16 +71,32 @@ func start_sit_timer(stand_anim: String, sit_anim: String, wait_time: float):
 	await get_tree().create_timer(wait_time).timeout
 	if velocity == Vector2.ZERO: # Only sit if we haven't started moving again
 		play_and_sync(sit_anim)
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		spawn_new_cat()
-func spawn_new_cat():
+
+#func _input(event):
+	#if event.is_action_pressed("ui_accept"):
+		#call_deferred_thread_group("spawn_new_cat",global_position)
+		
+
+
+func spawn_new_cat(glbal_positon:Vector2):
+	var random_hue = randf() 
 	var new_cat = cat_scene.instantiate()
+	new_cat.modulate = Color.from_hsv(random_hue, 0.8, 0.9)
+	
 	add_sibling(new_cat)
 	new_cat.add_to_group("followingcats")
 	var cat_count = get_tree().get_nodes_in_group("followingcats").size()
-	new_cat.follow_index = cat_count * 15
+	new_cat.follow_index = cat_count * 7
 	new_cat.follow_target = self
-	new_cat.global_position = global_position
+	new_cat.global_position = glbal_positon
+	cats_following += 1
+
 func broadcast_animation(anim_name: String):
 	get_tree().call_group("followingcats", "sync_animation", anim_name)
+
+func score_changed(positon_of_object):
+	call_deferred_thread_group("spawn_new_cat",positon_of_object)
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	pass # Replace with function body.

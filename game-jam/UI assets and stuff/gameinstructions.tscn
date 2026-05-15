@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://df8h7jpenegw8"]
+
+[ext_resource type="Script" uid="uid://bixhagbf5l4s6" path="res://UI assets and stuff/gameinstructions.gd" id="1_486ht"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_53cqk"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_486ht"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_comso"]
+font_size = 22
+
+[node name="Control" type="Control" unique_id=123754188]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_486ht")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1273465538]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -24.0
+offset_right = 1208.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=823539940]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 104.0
+offset_right = 1021.0
+offset_bottom = 146.0
+text = "Your goal is to herd hoomans into traffic to gain cat followers"
+label_settings = SubResource("LabelSettings_53cqk")
+
+[node name="Label2" type="Label" parent="." unique_id=2001504318]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 208.0
+offset_right = 713.0
+offset_bottom = 236.0
+text = "Controls: WASD or Arrow keys"
+label_settings = SubResource("LabelSettings_486ht")
+
+[node name="Label3" type="Label" parent="." unique_id=1530112733]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 734.0
+offset_bottom = 287.0
+text = "Meow : J                                Hiss: K"
+label_settings = SubResource("LabelSettings_comso")
+
+[node name="Label4" type="Label" parent="." unique_id=590762315]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 288.0
+offset_right = 489.0
+offset_bottom = 311.0
+text = "Attract hoomans"
+
+[node name="Label5" type="Label" parent="." unique_id=204918615]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 288.0
+offset_right = 778.0
+offset_bottom = 311.0
+text = "Scare away hoomans"
+
+[node name="Label6" type="Label" parent="." unique_id=1826759936]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 344.0
+offset_right = 604.0
+offset_bottom = 367.0
+text = "Pause:   ESC"
+
+[node name="pllay" type="Button" parent="." unique_id=1001827937]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 488.0
+offset_right = 776.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[connection signal="pressed" from="pllay" to="." method="_on_pllay_pressed"]

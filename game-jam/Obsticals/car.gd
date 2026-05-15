@@ -8,10 +8,10 @@ var speedset = false
 var cartype = "emergency"
 var Cartypes = ["standard","slow","fast","emergency"]
 var carstypedata = {
-	"standard":{"speed": 35},
-	"slow": {"speed": 15},
-	"fast":{"speed": 55},
-	"emergency": {"speed": 70}
+	"standard":{"speed": 35,},
+	"slow": {"speed": 15,},
+	"fast":{"speed": 55,},
+	"emergency": {"speed": 70,}
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 			speedset = true
 			y_velocity *= carstypedata[cartype]["speed"]
 			x_velocity *= carstypedata[cartype]["speed"]
+			print($CatFlinger.desired_cat_fling_velocity.x)
 	if not stop:
 		velocity.x = x_velocity
 		velocity.y = y_velocity
@@ -37,12 +38,25 @@ func _process(delta: float) -> void:
 			velocity.y -= 20
 	var target_angle = atan2(velocity.y, velocity.x)
 	rotation = lerp_angle(rotation, target_angle, 0.2)
+	$CatFlinger.desired_cat_fling_velocity.x = velocity.length()*2
+	if cartype == "slow":
+		$CatFlinger.desired_cat_fling_velocity.x = velocity.length()*6
+	elif cartype == "standard":
+		$CatFlinger.desired_cat_fling_velocity.x = velocity.length()*4
 	move_and_slide()
 
 
 func _on_roadpart_detection_area_entered(area: Area2D) -> void:
+	var desision
 	if area.Roadpart == "turn":
-		var desision = area.options.pick_random()
+		if area.position.x - 5 > position.x:
+			desision = area.rightoptions.pick_random()
+		elif area.position.x + 5 < position.x:
+			desision = area.leftoptions.pick_random()
+		elif area.position.y - 5 > position.y:
+			desision = area.downoptions.pick_random()
+		elif area.position.y + 5 < position.y:
+			desision = area.upoptions.pick_random()
 		match desision:
 			"left":
 				if x_velocity != 0:
@@ -78,3 +92,7 @@ func _on_roadpart_detection_area_entered(area: Area2D) -> void:
 				speedset = false
 			"strait":
 				pass
+
+
+func _on_roadpart_detection_body_entered(body: Node2D) -> void:
+	queue_free()

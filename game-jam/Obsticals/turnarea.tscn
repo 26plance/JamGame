@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://siplqqufx2fe" path="res://Obsticals/turnarea.gd" id="1_rhnqd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok1lb"]
+size = Vector2(8, 8)
 
 [node name="Turnarea" type="Area2D" unique_id=707995603]
 collision_layer = 2

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://jjvry31hywvg"]
+
+[ext_resource type="Script" uid="uid://cfbimh28ga44f" path="res://Npc/wanderpoint.gd" id="1_x4qs5"]
+
+[node name="Wanderpoint" type="Marker2D" unique_id=179476238 groups=["Wanderpoints"]]
+script = ExtResource("1_x4qs5")

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bjg8h0hui1277"]
+
+[ext_resource type="Texture2D" uid="uid://ctkn437udht28" path="res://player/random kitty kats/herbert kat.png" id="1_pqp6m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5m83"]
+atlas = ExtResource("1_pqp6m")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gwg4"]
+atlas = ExtResource("1_pqp6m")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx0c4"]
+atlas = ExtResource("1_pqp6m")
+region = Rect2(0, 40, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fm4wm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5m83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gwg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gwg4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqp6m"]
+size = Vector2(24, 9)
+
+[node name="herb_kaat" type="CharacterBody2D" unique_id=1204380946]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=204530456]
+sprite_frames = SubResource("SpriteFrames_fm4wm")
+autoplay = "default"
+frame_progress = 0.056103118
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=837450173]
+position = Vector2(-4, -0.5)
+shape = SubResource("RectangleShape2D_pqp6m")

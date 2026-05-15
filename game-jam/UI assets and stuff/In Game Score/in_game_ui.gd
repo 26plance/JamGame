@@ -13,6 +13,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func score_changed():
+func score_changed(positon_of_object):
 	score_label.text = "Score: " + str(int(PointHandler.current_score))
 	animation_player.play("appear then disapear")
