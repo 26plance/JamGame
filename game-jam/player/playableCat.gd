@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var cat_herd_follow: Marker2D = $"cat herd follow"
 
+var cats_following: int = 0
 
 var position_history: Array[Vector2] =[]
 const MAX_HISTORY = 300
@@ -88,6 +89,7 @@ func spawn_new_cat(glbal_positon:Vector2):
 	new_cat.follow_index = cat_count * 7
 	new_cat.follow_target = self
 	new_cat.global_position = glbal_positon
+	cats_following += 1
 
 func broadcast_animation(anim_name: String):
 	get_tree().call_group("followingcats", "sync_animation", anim_name)
