@@ -92,3 +92,7 @@ func _on_roadpart_detection_area_entered(area: Area2D) -> void:
 				speedset = false
 			"strait":
 				pass
+
+
+func _on_roadpart_detection_body_entered(body: Node2D) -> void:
+	queue_free()

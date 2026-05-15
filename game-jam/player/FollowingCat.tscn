@@ -8,7 +8,6 @@ radius = 8.0
 
 [node name="FollowingCats" type="CharacterBody2D" unique_id=130210116 groups=["cat"]]
 collision_layer = 4
-collision_mask = 0
 motion_mode = 1
 up_direction = Vector2(0, 1)
 script = ExtResource("1_ltbar")
