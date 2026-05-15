@@ -1,23 +1,28 @@
 [gd_scene format=3 uid="uid://ck1qwrbkm6unc"]
 
 [ext_resource type="Script" uid="uid://c6kc6bo7xb4nv" path="res://Npc/human_npc.gd" id="1_cv0od"]
-[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="2_i8b1p"]
+[ext_resource type="SpriteFrames" uid="uid://cj353idhf2f70" path="res://player/npc_base_frames.tres" id="2_i8b1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cv0od"]
-radius = 75.059975
+radius = 16.03122
 
 [node name="HumanNpc" type="CharacterBody2D" unique_id=1986557669 groups=["npcs"]]
 script = ExtResource("1_cv0od")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16618671]
+position = Vector2(0, 25)
 shape = SubResource("CircleShape2D_cv0od")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=274592157]
-texture = ExtResource("2_i8b1p")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1263988169]
+sprite_frames = ExtResource("2_i8b1p")
+animation = &"Downward_walk"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=60759357]
+[node name="Node2D" type="Node2D" parent="." unique_id=1051052928]
+position = Vector2(0, 25)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Node2D" unique_id=60759357]
 avoidance_enabled = true
-radius = 80.0
+radius = 16.03
 max_speed = 300.0
 
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="velocity_computed" from="Node2D/NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

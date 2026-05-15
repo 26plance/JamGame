@@ -1,6 +1,8 @@
 class_name humanNpc
 extends CharacterBody2D
-@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var navigation_agent_2d: NavigationAgent2D = $Node2D/NavigationAgent2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+
 
 enum NpcState {Wandering, Scared, Following}
 @export var reputation: float = 0
@@ -82,6 +84,29 @@ func _physics_process(delta: float) -> void:
 	navigation_agent_2d.velocity = velocity
 	
 	
+func figure_out_animation_from_velocity(velocity:Vector2):
+	var angle = velocity.angle()
+	
+	var closest_distance = 10000000
+	var current_animation = "default"
+	
+	var directions = {
+		0:"rightward_walk",
+		90:"Downward_walk",
+		-90:"upward_walk",
+		180:"leftwardWalk",
+		-180:"leftwardWalk"
+	}
+	# figure out closedt directions in positive and negitive ways, need to to do this for reasons
+	for direction in directions:
+		var diffence_in_angle = abs(angle_difference(angle,deg_to_rad(direction)))
+		print(directions[direction])
+		print(diffence_in_angle)
+		if diffence_in_angle < closest_distance:
+			closest_distance = diffence_in_angle
+			current_animation = directions[direction]
+	
+	sprite_2d.play(current_animation)
 
 func check_if_cat_in_line_of_sight(delta):
 	if cat_to_locate:
@@ -134,6 +159,7 @@ func die():
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
+	figure_out_animation_from_velocity(velocity)
 	move_and_slide()
 
 
