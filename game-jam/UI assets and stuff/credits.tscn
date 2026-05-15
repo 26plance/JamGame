@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b6p44fyai6lhx"]
+
+[ext_resource type="Script" uid="uid://blgiwpamkh635" path="res://UI assets and stuff/credits.gd" id="1_5mbmq"]
+[ext_resource type="PackedScene" uid="uid://br38uc5gum1pi" path="res://UI assets and stuff/scene_transitions.tscn" id="2_k5igm"]
+
+[node name="credits" type="Control" unique_id=959802431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5mbmq")
+
+[node name="Label" type="Label" parent="." unique_id=1946823077]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 128.0
+offset_right = 704.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 24
+text = "Credits
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1693419903]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 168.0
+offset_right = 704.0
+offset_bottom = 448.0
+text = "Programming:
+Brie
+Porter
+Austin
+
+Art:
+Camden
+Brie
+"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=304159747]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 393.0
+offset_right = 661.333
+offset_bottom = 416.0
+text = "Back"
+
+[node name="transition" parent="." unique_id=1792177419 instance=ExtResource("2_k5igm")]
+layout_mode = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

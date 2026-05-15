@@ -44,7 +44,7 @@ text = "	Quit
 "
 
 [node name="transition" parent="." unique_id=1792177419 instance=ExtResource("2_hl8kj")]
-visible = false
+z_index = 600
 layout_mode = 1
 
 [node name="MainMenu" type="Sprite2D" parent="." unique_id=1818041536]
