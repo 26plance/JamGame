@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://codux20j1ve5v" path="res://UI assets and stuff/menu_of_mainness.gd" id="1_ja85b"]
 [ext_resource type="PackedScene" uid="uid://br38uc5gum1pi" path="res://UI assets and stuff/scene_transitions.tscn" id="2_hl8kj"]
+[ext_resource type="Texture2D" uid="uid://cqjtnh5p7kij6" path="res://UI assets and stuff/menu background.png" id="2_upbrc"]
 [ext_resource type="Texture2D" uid="uid://dd0pcxjewi3gy" path="res://UI assets and stuff/main menu.png" id="3_o68v2"]
 
 [node name="menu_of_mainness" type="Control" unique_id=1787752164]
@@ -24,9 +25,9 @@ mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=149521810]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 40.0
-offset_right = 253.33334
+offset_left = 552.0
+offset_top = 8.0
+offset_right = 744.0
 offset_bottom = 312.0
 theme_override_constants/separation = 10
 
@@ -43,12 +44,20 @@ layout_mode = 2
 text = "	Quit
 "
 
+[node name="MenuBackground" type="Sprite2D" parent="Panel" unique_id=2023975372]
+z_index = -7
+position = Vector2(168, 64)
+scale = Vector2(2.0246913, 2.0246913)
+texture = ExtResource("2_upbrc")
+
 [node name="transition" parent="." unique_id=1792177419 instance=ExtResource("2_hl8kj")]
+visible = false
 z_index = 600
 layout_mode = 1
 
 [node name="MainMenu" type="Sprite2D" parent="." unique_id=1818041536]
-position = Vector2(576, 144.00002)
+position = Vector2(832, 136.00002)
+rotation = -0.116937056
 scale = Vector2(2.0363634, 2.0363631)
 texture = ExtResource("3_o68v2")
 
