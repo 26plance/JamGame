@@ -281,10 +281,12 @@ position = Vector2(1984, 1104)
 cat_to_locate = NodePath("../playableCat")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2120898511]
+visible = false
 position = Vector2(-472, 152)
 navigation_polygon = SubResource("NavigationPolygon_xto7t")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=216806754]
+visible = false
 position = Vector2(-472, 152)
 navigation_polygon = SubResource("NavigationPolygon_8a2b0")
 enter_cost = 1.0
