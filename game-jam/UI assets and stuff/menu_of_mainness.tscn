@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://codux20j1ve5v" path="res://UI assets and stuff/menu_of_mainness.gd" id="1_ja85b"]
 [ext_resource type="PackedScene" uid="uid://br38uc5gum1pi" path="res://UI assets and stuff/scene_transitions.tscn" id="2_hl8kj"]
+[ext_resource type="Texture2D" uid="uid://dd0pcxjewi3gy" path="res://UI assets and stuff/main menu.png" id="3_o68v2"]
 
 [node name="menu_of_mainness" type="Control" unique_id=1787752164]
 layout_mode = 3
@@ -46,15 +47,10 @@ text = "	Quit
 visible = false
 layout_mode = 1
 
-
-[node name="Label" type="Label" parent="." unique_id=248406634]
-layout_mode = 0
-offset_left = 440.0
-offset_top = 216.0
-offset_right = 703.0
-offset_bottom = 239.0
-text = "we don't have a title yet sooooo...."
-
+[node name="MainMenu" type="Sprite2D" parent="." unique_id=1818041536]
+position = Vector2(576, 144.00002)
+scale = Vector2(2.0363634, 2.0363631)
+texture = ExtResource("3_o68v2")
 
 [connection signal="pressed" from="Panel/VBoxContainer/pllay" to="." method="_on_pllay_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/credits" to="." method="_on_credits_pressed"]
